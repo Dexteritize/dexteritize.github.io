@@ -7,7 +7,7 @@
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
   <!-- Favicon -->
-  <link rel="icon" href="https://via.placeholder.com/32x32.png?text=HT" type="image/png">
+  <link rel="icon" href="logo.png" type="image/png">
   <style>
     /* Reset & Typography */
     * {
@@ -17,12 +17,12 @@
     }
     body {
       font-family: 'Montserrat', sans-serif;
-      background-color: #121212;
-      color: #e0e0e0;
+      background-color: #2e2e2e; /* Dark gray */
+      color: #f5f5f5; /* Off-white */
       line-height: 1.6;
     }
     a {
-      color: #1db954;
+      color: #0077cc; /* Blue accent */
       text-decoration: none;
     }
     a:hover {
@@ -31,7 +31,7 @@
 
     /* Navigation */
     header {
-      background-color: #1f1f1f;
+      background-color: #1c1c1c;
       padding: 20px;
       position: sticky;
       top: 0;
@@ -41,11 +41,17 @@
       width: 90%;
       max-width: 1200px;
       margin: auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .logo img {
+      height: 50px;
     }
     nav ul {
       list-style: none;
       display: flex;
-      justify-content: flex-end;
+      align-items: center;
     }
     nav ul li {
       margin-left: 20px;
@@ -53,12 +59,30 @@
 
     /* Hero Section */
     .hero {
+      position: relative;
       height: 90vh;
-      background: linear-gradient(135deg, #1f1f1f, #121212), url('https://via.placeholder.com/1200x800') center/cover no-repeat;
+      background: #1c1c1c;
       display: flex;
       align-items: center;
       justify-content: center;
       text-align: center;
+      overflow: hidden;
+    }
+    /* Background logo overlay */
+    .hero::before {
+      content: "";
+      background: url('backhedge.png') center/cover no-repeat;
+      opacity: 0.1;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+    }
+    .hero-content {
+      position: relative;
+      z-index: 1;
       padding: 0 20px;
     }
     .hero h1 {
@@ -76,21 +100,21 @@
       margin-top: 30px;
       padding: 15px 30px;
       font-size: 1em;
-      background-color: #1db954;
+      background-color: #0077cc;
       border: none;
       border-radius: 25px;
-      color: #121212;
+      color: #2e2e2e;
       cursor: pointer;
       transition: background-color 0.3s ease;
     }
     .hero button:hover {
-      background-color: #17a44d;
+      background-color: #005fa3;
     }
 
     /* Sections */
     section {
       padding: 60px 0;
-      border-bottom: 1px solid #2c2c2c;
+      border-bottom: 1px solid #444;
     }
     section:last-of-type {
       border-bottom: none;
@@ -115,7 +139,7 @@
       margin-top: 40px;
     }
     .card {
-      background-color: #1f1f1f;
+      background-color: #1c1c1c;
       padding: 20px;
       border-radius: 8px;
       width: 300px;
@@ -127,16 +151,23 @@
     }
     .card h3 {
       margin-bottom: 15px;
-      color: #1db954;
+      color: #0077cc;
     }
     .card p {
       font-size: 0.95em;
-      color: #c0c0c0;
+      color: #cccccc;
+    }
+    /* Optional: Style for team member images */
+    .card img {
+      width: 100%;
+      height: auto;
+      border-radius: 50%;
+      margin-bottom: 15px;
     }
 
     /* Footer */
     footer {
-      background-color: #1f1f1f;
+      background-color: #1c1c1c;
       padding: 20px 0;
       text-align: center;
       font-size: 0.9em;
@@ -148,7 +179,6 @@
       }
       nav ul {
         flex-direction: column;
-        align-items: center;
       }
       nav ul li {
         margin: 10px 0;
@@ -159,11 +189,15 @@
 <body>
   <header>
     <div class="container">
+      <div class="logo">
+        <img src="HedgeTrimmerLight.png" alt="HedgeTrimmer Capital Logo">
+      </div>
       <nav>
         <ul>
           <li><a href="#about">About</a></li>
           <li><a href="#strategy">Strategy</a></li>
           <li><a href="#performance">Performance</a></li>
+          <li><a href="#team">Meet the Team</a></li>
           <li><a href="#contact">Contact</a></li>
         </ul>
       </nav>
@@ -172,12 +206,10 @@
 
   <!-- Hero Section -->
   <section class="hero">
-    <div class="container">
-      <div>
-        <h1>HedgeTrimmer Capital</h1>
-        <p>Where cutting-edge algorithms meet market expertise. We combine sophisticated multi-asset strategies with real-time data to unlock investment opportunities in today’s dynamic markets.</p>
-        <button onclick="window.location.href='#contact'">Get In Touch</button>
-      </div>
+    <div class="hero-content">
+      <h1>Hedge Trimmer Capital</h1>
+      <p>Where cutting-edge algorithms meet market expertise. We combine sophisticated multi-asset strategies with real-time data to unlock investment opportunities in today’s dynamic markets.</p>
+      <button onclick="window.location.href='#contact'">Get In Touch</button>
     </div>
   </section>
 
@@ -221,11 +253,39 @@
       <h2>Performance</h2>
       <div class="content">
         <p>Our strategies are backtested rigorously over multiple market cycles. We believe in transparency and continuous improvement, ensuring that our methods are both innovative and resilient.</p>
-        <!-- Placeholder for future performance charts or metrics -->
-        <img src="https://via.placeholder.com/800x400.png?text=Performance+Chart" alt="Performance Chart" style="width:100%; border-radius:8px; margin-top:20px;">
       </div>
     </div>
   </section>
+
+<!-- Meet the Team Section -->
+<section id="team">
+  <div class="container">
+    <h2>Meet the Team</h2>
+    <div class="content">
+      <div class="cards">
+        <div class="card">
+          <!-- Replace "jason-dank.jpg" with the correct image path -->
+          <img src="HedgeTrimmerDark.png" alt="Jason Dank">
+          <h3><a href="https://www.linkedin.com/in/jason-dank/">Jason Dank</a></h3>
+          <p>Founder & CTO</p>
+        </div>
+        <div class="card">
+          <!-- Replace "placeholder1.jpg" with the correct image path -->
+          <img src="HedgeTrimmerDark.png" alt="George Tatakis">
+          <h3><a href="https://www.linkedin.com/in/tatakisg/">George Tatakis</a></h3>
+          <p>CIO</p>
+        </div>
+        <div class="card">
+          <!-- Replace "placeholder2.jpg" with the correct image path -->
+          <img src="HedgeTrimmerDark.png" alt="Conor Mathews">
+          <h3><a href="https://www.linkedin.com/in/conor-matthews19/">Conor Mathews</a></h3>
+          <p>Quantitative</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 
   <!-- Contact Section -->
   <section id="contact">
@@ -233,15 +293,14 @@
       <h2>Contact Us</h2>
       <div class="content">
         <p>Ready to learn more? Get in touch with us to explore investment opportunities or discuss our cutting-edge strategies.</p>
-        <p>Email: <a href="mailto:contact@hedgetrimmercapital.com">contact@hedgetrimmercapital.com</a></p>
-        <p>Phone: +1 (555) 123-4567</p>
+        <p>LinkedIn: <a href="https://www.linkedin.com/company/hedgetrimmer/">@HedgeTrimmer</a></p>
       </div>
     </div>
   </section>
 
   <footer>
     <div class="container">
-      <p>&copy; 2025 HedgeTrimmer Capital. All rights reserved.</p>
+      <p>&copy; 2025 Hedge Trimmer Capital. All rights reserved.</p>
     </div>
   </footer>
 </body>
