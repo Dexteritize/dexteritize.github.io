@@ -1,2 +1,0 @@
-# hedgetrimmer.github.io
-Website
