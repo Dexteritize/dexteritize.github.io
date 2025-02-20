@@ -1,7 +1,248 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>HedgeTrimmer Capital</title>
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+  <!-- Favicon -->
+  <link rel="icon" href="https://via.placeholder.com/32x32.png?text=HT" type="image/png">
+  <style>
+    /* Reset & Typography */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background-color: #121212;
+      color: #e0e0e0;
+      line-height: 1.6;
+    }
+    a {
+      color: #1db954;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+
+    /* Navigation */
+    header {
+      background-color: #1f1f1f;
+      padding: 20px;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+    .container {
+      width: 90%;
+      max-width: 1200px;
+      margin: auto;
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+      justify-content: flex-end;
+    }
+    nav ul li {
+      margin-left: 20px;
+    }
+
+    /* Hero Section */
+    .hero {
+      height: 90vh;
+      background: linear-gradient(135deg, #1f1f1f, #121212), url('https://via.placeholder.com/1200x800') center/cover no-repeat;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 0 20px;
+    }
+    .hero h1 {
+      font-size: 3em;
+      margin-bottom: 20px;
+      color: #ffffff;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.6);
+    }
+    .hero p {
+      font-size: 1.2em;
+      max-width: 700px;
+      margin: auto;
+    }
+    .hero button {
+      margin-top: 30px;
+      padding: 15px 30px;
+      font-size: 1em;
+      background-color: #1db954;
+      border: none;
+      border-radius: 25px;
+      color: #121212;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    .hero button:hover {
+      background-color: #17a44d;
+    }
+
+    /* Sections */
+    section {
+      padding: 60px 0;
+      border-bottom: 1px solid #2c2c2c;
+    }
+    section:last-of-type {
+      border-bottom: none;
+    }
+    h2 {
+      text-align: center;
+      margin-bottom: 40px;
+      font-size: 2.5em;
+      color: #ffffff;
+    }
+    .content {
+      max-width: 1000px;
+      margin: auto;
+      text-align: center;
+      padding: 0 20px;
+    }
+    .cards {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+      margin-top: 40px;
+    }
+    .card {
+      background-color: #1f1f1f;
+      padding: 20px;
+      border-radius: 8px;
+      width: 300px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.4);
+      transition: transform 0.3s ease;
+    }
+    .card:hover {
+      transform: translateY(-5px);
+    }
+    .card h3 {
+      margin-bottom: 15px;
+      color: #1db954;
+    }
+    .card p {
+      font-size: 0.95em;
+      color: #c0c0c0;
+    }
+
+    /* Footer */
+    footer {
+      background-color: #1f1f1f;
+      padding: 20px 0;
+      text-align: center;
+      font-size: 0.9em;
+      color: #888;
+    }
+    @media (max-width: 768px) {
+      .hero h1 {
+        font-size: 2.5em;
+      }
+      nav ul {
+        flex-direction: column;
+        align-items: center;
+      }
+      nav ul li {
+        margin: 10px 0;
+      }
+    }
+  </style>
+</head>
 <body>
-<h1>Hello World</h1>
-<p>I'm hosted with GitHub Pages.</p>
+  <header>
+    <div class="container">
+      <nav>
+        <ul>
+          <li><a href="#about">About</a></li>
+          <li><a href="#strategy">Strategy</a></li>
+          <li><a href="#performance">Performance</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="container">
+      <div>
+        <h1>HedgeTrimmer Capital</h1>
+        <p>Where cutting-edge algorithms meet market expertise. We combine sophisticated multi-asset strategies with real-time data to unlock investment opportunities in today’s dynamic markets.</p>
+        <button onclick="window.location.href='#contact'">Get In Touch</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about">
+    <div class="container">
+      <h2>About Us</h2>
+      <div class="content">
+        <p>HedgeTrimmer Capital is a modern hedge fund built on advanced analytics, innovative algorithms, and a relentless pursuit of excellence. Our team leverages deep market insights and cutting-edge technology to deliver superior risk-adjusted returns.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Strategy Section -->
+  <section id="strategy">
+    <div class="container">
+      <h2>Our Strategy</h2>
+      <div class="content">
+        <p>Our portfolio approach uses a blend of traditional technical indicators and machine learning techniques, supported by macroeconomic insights. We focus on dynamic multi-asset allocations and adaptive strategies to navigate different market regimes.</p>
+        <div class="cards">
+          <div class="card">
+            <h3>Adaptive Algorithms</h3>
+            <p>We deploy state-of-the-art models like LSTM and XGBoost that continuously learn and adapt to evolving market conditions.</p>
+          </div>
+          <div class="card">
+            <h3>Dynamic Risk Management</h3>
+            <p>Our robust risk controls and position sizing ensure that we manage downside risk while capitalizing on growth opportunities.</p>
+          </div>
+          <div class="card">
+            <h3>Macro Integration</h3>
+            <p>Integrating macroeconomic indicators into our strategies helps us maintain an edge in volatile and uncertain markets.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Performance Section -->
+  <section id="performance">
+    <div class="container">
+      <h2>Performance</h2>
+      <div class="content">
+        <p>Our strategies are backtested rigorously over multiple market cycles. We believe in transparency and continuous improvement, ensuring that our methods are both innovative and resilient.</p>
+        <!-- Placeholder for future performance charts or metrics -->
+        <img src="https://via.placeholder.com/800x400.png?text=Performance+Chart" alt="Performance Chart" style="width:100%; border-radius:8px; margin-top:20px;">
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact">
+    <div class="container">
+      <h2>Contact Us</h2>
+      <div class="content">
+        <p>Ready to learn more? Get in touch with us to explore investment opportunities or discuss our cutting-edge strategies.</p>
+        <p>Email: <a href="mailto:contact@hedgetrimmercapital.com">contact@hedgetrimmercapital.com</a></p>
+        <p>Phone: +1 (555) 123-4567</p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <p>&copy; 2025 HedgeTrimmer Capital. All rights reserved.</p>
+    </div>
+  </footer>
 </body>
 </html>
