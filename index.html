@@ -1,15 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>HedgeTrimmer Capital</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>HedgeTrimmer Capital – Innovative Multi-Asset Hedge Fund</title>
+
+  <!-- Meta Description for SEO -->
+  <meta name="description" content="HedgeTrimmer Capital is a modern hedge fund combining advanced algorithms, market expertise, and macro insights to deliver superior risk-adjusted returns." />
+
+  <!-- Open Graph Tags for social sharing -->
+  <meta property="og:title" content="HedgeTrimmer Capital – Innovative Multi-Asset Hedge Fund" />
+  <meta property="og:description" content="We combine sophisticated multi-asset strategies with real-time data to unlock investment opportunities in today’s markets." />
+  <meta property="og:image" content="logo.png" />
+  <meta property="og:url" content="https://www.yoursite.com" />
+  <meta name="twitter:card" content="summary_large_image" />
+
   <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap"
+    rel="stylesheet"
+  />
+
   <!-- Favicon -->
-  <link rel="icon" href="logo.png" type="image/png">
+  <link rel="icon" href="logo.png" type="image/png" />
+
   <style>
-    /* Reset & Typography */
+    /* RESET & TYPOGRAPHY */
     * {
       margin: 0;
       padding: 0;
@@ -29,7 +45,7 @@
       text-decoration: underline;
     }
 
-    /* Navigation */
+    /* HEADER & NAVIGATION */
     header {
       background-color: #1c1c1c;
       padding: 20px;
@@ -37,7 +53,7 @@
       top: 0;
       z-index: 1000;
     }
-    .container {
+    .header-container {
       width: 90%;
       max-width: 1200px;
       margin: auto;
@@ -48,16 +64,51 @@
     .logo img {
       height: 50px;
     }
-    nav ul {
+    nav {
+      position: relative;
+    }
+    .nav-links {
       list-style: none;
       display: flex;
       align-items: center;
     }
-    nav ul li {
+    .nav-links li {
       margin-left: 20px;
     }
 
-    /* Hero Section */
+    /* HAMBURGER MENU FOR MOBILE */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+    }
+    .hamburger div {
+      width: 25px;
+      height: 3px;
+      background-color: #f5f5f5;
+      margin: 5px 0;
+    }
+    @media (max-width: 768px) {
+      .nav-links {
+        position: absolute;
+        top: 60px;
+        right: 0;
+        background-color: #1c1c1c;
+        flex-direction: column;
+        width: 200px;
+        padding: 20px;
+        border: 1px solid #444;
+        display: none;
+      }
+      .nav-links li {
+        margin: 10px 0;
+      }
+      .hamburger {
+        display: flex;
+      }
+    }
+
+    /* HERO SECTION */
     .hero {
       position: relative;
       height: 90vh;
@@ -68,7 +119,6 @@
       text-align: center;
       overflow: hidden;
     }
-    /* Background logo overlay */
     .hero::before {
       content: "";
       background: url('backhedge.png') center/cover no-repeat;
@@ -111,7 +161,7 @@
       background-color: #005fa3;
     }
 
-    /* Sections */
+    /* GENERAL SECTION STYLES */
     section {
       padding: 60px 0;
       border-bottom: 1px solid #444;
@@ -125,12 +175,19 @@
       font-size: 2.5em;
       color: #ffffff;
     }
+    .container {
+      width: 90%;
+      max-width: 1200px;
+      margin: auto;
+    }
     .content {
       max-width: 1000px;
       margin: auto;
       text-align: center;
       padding: 0 20px;
     }
+
+    /* CARDS */
     .cards {
       display: flex;
       flex-wrap: wrap;
@@ -157,7 +214,6 @@
       font-size: 0.95em;
       color: #cccccc;
     }
-    /* Optional: Style for team member images */
     .card img {
       width: 100%;
       height: auto;
@@ -165,7 +221,7 @@
       margin-bottom: 15px;
     }
 
-    /* Footer */
+    /* FOOTER */
     footer {
       background-color: #1c1c1c;
       padding: 20px 0;
@@ -173,27 +229,38 @@
       font-size: 0.9em;
       color: #888;
     }
+    footer .disclaimer {
+      margin-top: 10px;
+      font-size: 0.8em;
+      color: #aaa;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* MEDIA QUERIES */
     @media (max-width: 768px) {
       .hero h1 {
         font-size: 2.5em;
-      }
-      nav ul {
-        flex-direction: column;
-      }
-      nav ul li {
-        margin: 10px 0;
       }
     }
   </style>
 </head>
 <body>
+  <!-- HEADER WITH LOGO AND NAV -->
   <header>
-    <div class="container">
+    <div class="header-container">
       <div class="logo">
-        <img src="HedgeTrimmerLight.png" alt="HedgeTrimmer Capital Logo">
+        <!-- ALT text improved for better accessibility -->
+        <img src="HedgeTrimmerLight.png" alt="HedgeTrimmer Capital Logo" loading="lazy">
       </div>
       <nav>
-        <ul>
+        <div class="hamburger" onclick="toggleMenu()">
+          <div></div>
+          <div></div>
+          <div></div>
+        </div>
+        <ul class="nav-links" id="navLinks">
           <li><a href="#about">About</a></li>
           <li><a href="#strategy">Strategy</a></li>
           <li><a href="#performance">Performance</a></li>
@@ -204,105 +271,156 @@
     </div>
   </header>
 
-  <!-- Hero Section -->
+  <!-- HERO SECTION -->
   <section class="hero">
     <div class="hero-content">
-      <h1>Hedge Trimmer Capital</h1>
-      <p>Where cutting-edge algorithms meet market expertise. We combine sophisticated multi-asset strategies with real-time data to unlock investment opportunities in today’s dynamic markets.</p>
-      <button onclick="window.location.href='#contact'">Get In Touch</button>
+      <h1>HedgeTrimmer Capital</h1>
+      <p>
+        Where cutting-edge algorithms meet market expertise. We combine
+        sophisticated multi-asset strategies with real-time data to unlock
+        investment opportunities in today’s dynamic markets.
+      </p>
+      <button onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'})">
+        Get In Touch
+      </button>
     </div>
   </section>
 
-  <!-- About Section -->
+  <!-- ABOUT SECTION -->
   <section id="about">
     <div class="container">
       <h2>About Us</h2>
       <div class="content">
-        <p>HedgeTrimmer Capital is a modern hedge fund built on advanced analytics, innovative algorithms, and a relentless pursuit of excellence. Our team leverages deep market insights and cutting-edge technology to deliver superior risk-adjusted returns.</p>
+        <p>
+          HedgeTrimmer Capital is a modern hedge fund built on advanced analytics,
+          innovative algorithms, and a relentless pursuit of excellence. Our team
+          leverages deep market insights and cutting-edge technology to deliver
+          superior risk-adjusted returns.
+        </p>
       </div>
     </div>
   </section>
 
-  <!-- Strategy Section -->
+  <!-- STRATEGY SECTION -->
   <section id="strategy">
     <div class="container">
       <h2>Our Strategy</h2>
       <div class="content">
-        <p>Our portfolio approach uses a blend of traditional technical indicators and machine learning techniques, supported by macroeconomic insights. We focus on dynamic multi-asset allocations and adaptive strategies to navigate different market regimes.</p>
+        <p>
+          Our portfolio approach uses a blend of traditional technical indicators
+          and machine learning techniques, supported by macroeconomic insights.
+          We focus on dynamic multi-asset allocations and adaptive strategies to
+          navigate different market regimes.
+        </p>
         <div class="cards">
           <div class="card">
             <h3>Adaptive Algorithms</h3>
-            <p>We deploy state-of-the-art models like LSTM and XGBoost that continuously learn and adapt to evolving market conditions.</p>
+            <p>
+              We deploy state-of-the-art models like LSTM and XGBoost that
+              continuously learn and adapt to evolving market conditions.
+            </p>
           </div>
           <div class="card">
             <h3>Dynamic Risk Management</h3>
-            <p>Our robust risk controls and position sizing ensure that we manage downside risk while capitalizing on growth opportunities.</p>
+            <p>
+              Our robust risk controls and position sizing ensure that we manage
+              downside risk while capitalizing on growth opportunities.
+            </p>
           </div>
           <div class="card">
             <h3>Macro Integration</h3>
-            <p>Integrating macroeconomic indicators into our strategies helps us maintain an edge in volatile and uncertain markets.</p>
+            <p>
+              Integrating macroeconomic indicators into our strategies helps us
+              maintain an edge in volatile and uncertain markets.
+            </p>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Performance Section -->
+  <!-- PERFORMANCE SECTION -->
   <section id="performance">
     <div class="container">
       <h2>Performance</h2>
       <div class="content">
-        <p>Our strategies are backtested rigorously over multiple market cycles. We believe in transparency and continuous improvement, ensuring that our methods are both innovative and resilient.</p>
+        <p>
+          Our strategies are backtested rigorously over multiple market cycles.
+          We believe in transparency and continuous improvement, ensuring that
+          our methods are both innovative and resilient.
+        </p>
+        <!-- Optional: Add a small performance chart or summary if desired -->
       </div>
     </div>
   </section>
 
-<!-- Meet the Team Section -->
-<section id="team">
-  <div class="container">
-    <h2>Meet the Team</h2>
-    <div class="content">
-      <div class="cards">
-        <div class="card">
-          <!-- Replace "jason-dank.jpg" with the correct image path -->
-          <img src="HedgeTrimmerDark.png" alt="Jason Dank">
-          <h3><a href="https://www.linkedin.com/in/jason-dank/">Jason Dank</a></h3>
-          <p>Founder & CTO</p>
-        </div>
-        <div class="card">
-          <!-- Replace "placeholder1.jpg" with the correct image path -->
-          <img src="HedgeTrimmerDark.png" alt="George Tatakis">
-          <h3><a href="https://www.linkedin.com/in/tatakisg/">George Tatakis</a></h3>
-          <p>CIO</p>
-        </div>
-        <div class="card">
-          <!-- Replace "placeholder2.jpg" with the correct image path -->
-          <img src="HedgeTrimmerDark.png" alt="Conor Mathews">
-          <h3><a href="https://www.linkedin.com/in/conor-matthews19/">Conor Mathews</a></h3>
-          <p>Quantitative</p>
+  <!-- TEAM SECTION -->
+  <section id="team">
+    <div class="container">
+      <h2>Meet the Team</h2>
+      <div class="content">
+        <div class="cards">
+          <div class="card">
+            <img src="HedgeTrimmerDark.png" alt="Team member photo of Jason Dank" loading="lazy">
+            <h3><a href="https://www.linkedin.com/in/jason-dank/" target="_blank" rel="noopener">Jason Dank</a></h3>
+            <p>Founder & CTO</p>
+          </div>
+          <div class="card">
+            <img src="HedgeTrimmerDark.png" alt="Team member photo of George Tatakis" loading="lazy">
+            <h3><a href="https://www.linkedin.com/in/tatakisg/" target="_blank" rel="noopener">George Tatakis</a></h3>
+            <p>CIO</p>
+          </div>
+          <div class="card">
+            <img src="HedgeTrimmerDark.png" alt="Team member photo of Conor Mathews" loading="lazy">
+            <h3><a href="https://www.linkedin.com/in/conor-matthews19/" target="_blank" rel="noopener">Conor Mathews</a></h3>
+            <p>Quantitative</p>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-
-  <!-- Contact Section -->
+  <!-- CONTACT SECTION -->
   <section id="contact">
     <div class="container">
       <h2>Contact Us</h2>
       <div class="content">
-        <p>Ready to learn more? Get in touch with us to explore investment opportunities or discuss our cutting-edge strategies.</p>
-        <p>LinkedIn: <a href="https://www.linkedin.com/company/hedgetrimmer/">@HedgeTrimmer</a></p>
-        <p>Github: <a href="https://github.com/Hedge-Trimmer">Hedge Trimmer</a></p>
+        <p>
+          Ready to learn more? Get in touch with us to explore investment
+          opportunities or discuss our cutting-edge strategies.
+        </p>
+        <p>LinkedIn: <a href="https://www.linkedin.com/company/hedgetrimmer/" target="_blank" rel="noopener">@HedgeTrimmer</a></p>
+        <p>GitHub: <a href="https://github.com/Hedge-Trimmer" target="_blank" rel="noopener">Hedge Trimmer</a></p>
       </div>
     </div>
   </section>
 
+  <!-- FOOTER -->
   <footer>
     <div class="container">
-      <p>&copy; 2025 Hedge Trimmer Capital. All rights reserved.</p>
+      <p>&copy; 2025 HedgeTrimmer Capital. All rights reserved.</p>
+      <div class="disclaimer">
+        <p>
+          Disclaimer: This website is for informational purposes only and does not
+          constitute an offer to sell, or a solicitation of an offer to buy, any
+          security or investment product. Past performance is not necessarily
+          indicative of future results. Investing involves risk of loss.
+        </p>
+      </div>
     </div>
   </footer>
+
+  <!-- OPTIONAL: SCRIPTS -->
+  <script>
+    // Toggle hamburger menu on mobile
+    function toggleMenu() {
+      const navLinks = document.getElementById('navLinks');
+      if (navLinks.style.display === 'flex') {
+        navLinks.style.display = 'none';
+      } else {
+        navLinks.style.display = 'flex';
+      }
+    }
+  </script>
 </body>
 </html>
