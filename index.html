@@ -33,12 +33,12 @@
     }
     body {
       font-family: 'Montserrat', sans-serif;
-      background-color: #2e2e2e; /* Dark gray */
-      color: #f5f5f5; /* Off-white */
+      background-color: #2e2e2e;
+      color: #f5f5f5;
       line-height: 1.6;
     }
     a {
-      color: #0077cc; /* Blue accent */
+      color: #0077cc;
       text-decoration: none;
     }
     a:hover {
@@ -118,6 +118,7 @@
       justify-content: center;
       text-align: center;
       overflow: hidden;
+      background-attachment: fixed; /* for parallax effect */
     }
     .hero::before {
       content: "";
@@ -238,6 +239,17 @@
       margin-right: auto;
     }
 
+    /* SCROLL REVEAL ANIMATIONS */
+    .reveal {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    }
+    .reveal-active {
+      opacity: 1;
+      transform: none;
+    }
+
     /* MEDIA QUERIES */
     @media (max-width: 768px) {
       .hero h1 {
@@ -251,7 +263,6 @@
   <header>
     <div class="header-container">
       <div class="logo">
-        <!-- ALT text improved for better accessibility -->
         <img src="HedgeTrimmerLight.png" alt="HedgeTrimmer Capital Logo" loading="lazy">
       </div>
       <nav>
@@ -272,7 +283,7 @@
   </header>
 
   <!-- HERO SECTION -->
-  <section class="hero">
+  <section class="hero reveal">
     <div class="hero-content">
       <h1>HedgeTrimmer Capital</h1>
       <p>
@@ -287,7 +298,7 @@
   </section>
 
   <!-- ABOUT SECTION -->
-  <section id="about">
+  <section id="about" class="reveal">
     <div class="container">
       <h2>About Us</h2>
       <div class="content">
@@ -302,7 +313,7 @@
   </section>
 
   <!-- STRATEGY SECTION -->
-  <section id="strategy">
+  <section id="strategy" class="reveal">
     <div class="container">
       <h2>Our Strategy</h2>
       <div class="content">
@@ -313,21 +324,21 @@
           navigate different market regimes.
         </p>
         <div class="cards">
-          <div class="card">
+          <div class="card reveal">
             <h3>Adaptive Algorithms</h3>
             <p>
               We deploy state-of-the-art models like LSTM and XGBoost that
               continuously learn and adapt to evolving market conditions.
             </p>
           </div>
-          <div class="card">
+          <div class="card reveal">
             <h3>Dynamic Risk Management</h3>
             <p>
               Our robust risk controls and position sizing ensure that we manage
               downside risk while capitalizing on growth opportunities.
             </p>
           </div>
-          <div class="card">
+          <div class="card reveal">
             <h3>Macro Integration</h3>
             <p>
               Integrating macroeconomic indicators into our strategies helps us
@@ -340,7 +351,7 @@
   </section>
 
   <!-- PERFORMANCE SECTION -->
-  <section id="performance">
+  <section id="performance" class="reveal">
     <div class="container">
       <h2>Performance</h2>
       <div class="content">
@@ -349,28 +360,27 @@
           We believe in transparency and continuous improvement, ensuring that
           our methods are both innovative and resilient.
         </p>
-        <!-- Optional: Add a small performance chart or summary if desired -->
       </div>
     </div>
   </section>
 
   <!-- TEAM SECTION -->
-  <section id="team">
+  <section id="team" class="reveal">
     <div class="container">
       <h2>Meet the Team</h2>
       <div class="content">
         <div class="cards">
-          <div class="card">
+          <div class="card reveal">
             <img src="HedgeTrimmerDark.png" alt="Team member photo of Jason Dank" loading="lazy">
             <h3><a href="https://www.linkedin.com/in/jason-dank/" target="_blank" rel="noopener">Jason Dank</a></h3>
             <p>Founder & CTO</p>
           </div>
-          <div class="card">
+          <div class="card reveal">
             <img src="HedgeTrimmerDark.png" alt="Team member photo of George Tatakis" loading="lazy">
             <h3><a href="https://www.linkedin.com/in/tatakisg/" target="_blank" rel="noopener">George Tatakis</a></h3>
             <p>CIO</p>
           </div>
-          <div class="card">
+          <div class="card reveal">
             <img src="HedgeTrimmerDark.png" alt="Team member photo of Conor Mathews" loading="lazy">
             <h3><a href="https://www.linkedin.com/in/conor-matthews19/" target="_blank" rel="noopener">Conor Mathews</a></h3>
             <p>Quantitative</p>
@@ -381,7 +391,7 @@
   </section>
 
   <!-- CONTACT SECTION -->
-  <section id="contact">
+  <section id="contact" class="reveal">
     <div class="container">
       <h2>Contact Us</h2>
       <div class="content">
@@ -396,7 +406,7 @@
   </section>
 
   <!-- FOOTER -->
-  <footer>
+  <footer class="reveal">
     <div class="container">
       <p>&copy; 2025 HedgeTrimmer Capital. All rights reserved.</p>
       <div class="disclaimer">
@@ -410,8 +420,49 @@
     </div>
   </footer>
 
-  <!-- OPTIONAL: SCRIPTS -->
+  <!-- JAVASCRIPT FOR ANIMATIONS -->
   <script>
+    // Typewriter effect for the hero heading
+    document.addEventListener("DOMContentLoaded", function() {
+      const heroHeading = document.querySelector('.hero h1');
+      const text = heroHeading.textContent;
+      heroHeading.textContent = "";
+      let i = 0;
+      function typeWriter() {
+        if (i < text.length) {
+          heroHeading.textContent += text.charAt(i);
+          i++;
+          setTimeout(typeWriter, 100);
+        }
+      }
+      typeWriter();
+    });
+
+    // Scroll reveal animations using Intersection Observer
+    document.addEventListener("DOMContentLoaded", function() {
+      const revealElements = document.querySelectorAll(".reveal");
+      const options = { threshold: 0.1 };
+      const observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("reveal-active");
+            observer.unobserve(entry.target);
+          }
+        });
+      }, options);
+      revealElements.forEach(el => {
+        observer.observe(el);
+      });
+    });
+
+    // Parallax effect for the hero background
+    window.addEventListener("scroll", function() {
+      const hero = document.querySelector(".hero");
+      const scrollPosition = window.pageYOffset;
+      // Adjust the multiplier as desired for subtle movement
+      hero.style.backgroundPositionY = scrollPosition * 0.5 + "px";
+    });
+
     // Toggle hamburger menu on mobile
     function toggleMenu() {
       const navLinks = document.getElementById('navLinks');
