@@ -16,10 +16,7 @@
   <meta name="twitter:card" content="summary_large_image" />
 
   <!-- Google Fonts -->
-  <link
-    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap"
-    rel="stylesheet"
-  />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet" />
 
   <!-- Favicon -->
   <link rel="icon" href="logo.png" type="image/png" />
@@ -52,7 +49,7 @@
       text-decoration: underline;
     }
 
-    /* Progress Bar */
+    /* Scroll Progress Bar */
     #progress-bar {
       position: fixed;
       top: 0;
@@ -98,7 +95,6 @@
     .nav-links li:hover {
       transform: scale(1.05);
     }
-
     /* HAMBURGER MENU FOR MOBILE */
     .hamburger {
       display: none;
@@ -132,7 +128,7 @@
       }
     }
 
-    /* HERO SECTION with Particle Background */
+    /* HERO SECTION WITH PARTICLES BACKGROUND */
     .hero {
       position: relative;
       height: 90vh;
@@ -184,7 +180,32 @@
       transform: scale(1.05);
     }
 
-    /* GENERAL SECTION STYLES */
+    /* ENHANCED ANIMATED GRADIENT BACKGROUND FOR SECTIONS */
+    .section-gradient {
+      position: relative;
+      overflow: hidden;
+    }
+    .section-gradient::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      /* Use a darker gradient with higher contrast */
+      background: linear-gradient(270deg, #2e2e2e, #000000, #2e2e2e);
+      background-size: 400% 400%;
+      opacity: 0.3; /* Increased opacity for better visibility */
+      animation: gradientAnimation 15s ease infinite;
+      z-index: -1;
+    }
+    @keyframes gradientAnimation {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    /* GENERAL SECTION STYLES & SCROLL REVEAL */
     section {
       padding: 60px 0;
       border-bottom: 1px solid #444;
@@ -206,6 +227,7 @@
       width: 90%;
       max-width: 1200px;
       margin: auto;
+      position: relative;
     }
     .content {
       max-width: 1000px;
@@ -310,7 +332,7 @@
     <!-- Particles container -->
     <div id="particles-js"></div>
     <div class="hero-content">
-      <h1>HedgeTrimmer Capital</h1>
+      <h1 id="typewriter">HedgeTrimmer Capital</h1>
       <p>
         Where cutting-edge algorithms meet market expertise. We combine
         sophisticated multi-asset strategies with real-time data to unlock
@@ -322,8 +344,8 @@
     </div>
   </section>
 
-  <!-- ABOUT SECTION -->
-  <section id="about">
+  <!-- ABOUT SECTION WITH ANIMATED GRADIENT BACKGROUND -->
+  <section id="about" class="section-gradient">
     <div class="container">
       <h2>About Us</h2>
       <div class="content">
@@ -337,8 +359,8 @@
     </div>
   </section>
 
-  <!-- STRATEGY SECTION -->
-  <section id="strategy">
+  <!-- STRATEGY SECTION WITH ANIMATED GRADIENT BACKGROUND -->
+  <section id="strategy" class="section-gradient">
     <div class="container">
       <h2>Our Strategy</h2>
       <div class="content">
@@ -375,8 +397,8 @@
     </div>
   </section>
 
-  <!-- PERFORMANCE SECTION -->
-  <section id="performance">
+  <!-- PERFORMANCE SECTION WITH ANIMATED GRADIENT BACKGROUND -->
+  <section id="performance" class="section-gradient">
     <div class="container">
       <h2>Performance</h2>
       <div class="content">
@@ -389,8 +411,8 @@
     </div>
   </section>
 
-  <!-- TEAM SECTION -->
-  <section id="team">
+  <!-- TEAM SECTION WITH ANIMATED GRADIENT BACKGROUND -->
+  <section id="team" class="section-gradient">
     <div class="container">
       <h2>Meet the Team</h2>
       <div class="content">
@@ -415,8 +437,8 @@
     </div>
   </section>
 
-  <!-- CONTACT SECTION -->
-  <section id="contact">
+  <!-- CONTACT SECTION WITH ANIMATED GRADIENT BACKGROUND -->
+  <section id="contact" class="section-gradient">
     <div class="container">
       <h2>Contact Us</h2>
       <div class="content">
@@ -430,7 +452,7 @@
     </div>
   </section>
 
-  <!-- FOOTER -->
+  <!-- FOOTER (without animated gradient) -->
   <footer>
     <div class="container">
       <p>&copy; 2025 HedgeTrimmer Capital. All rights reserved.</p>
@@ -512,6 +534,22 @@
         }
       },
       "retina_detect": true
+    });
+
+    /* TYPEWRITER EFFECT FOR HERO HEADING */
+    document.addEventListener("DOMContentLoaded", function() {
+      const heroHeading = document.getElementById('typewriter');
+      const text = heroHeading.textContent;
+      heroHeading.textContent = "";
+      let i = 0;
+      function typeWriter() {
+        if (i < text.length) {
+          heroHeading.textContent += text.charAt(i);
+          i++;
+          setTimeout(typeWriter, 100);
+        }
+      }
+      typeWriter();
     });
 
     /* HAMBURGER MENU TOGGLE */
