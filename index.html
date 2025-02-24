@@ -192,10 +192,9 @@
       left: 0;
       width: 100%;
       height: 100%;
-      /* Use a darker gradient with higher contrast */
       background: linear-gradient(270deg, #2e2e2e, #000000, #2e2e2e);
       background-size: 400% 400%;
-      opacity: 0.3; /* Increased opacity for better visibility */
+      opacity: 0.3;
       animation: gradientAnimation 15s ease infinite;
       z-index: -1;
     }
@@ -251,6 +250,7 @@
       width: 300px;
       box-shadow: 0 2px 8px rgba(0,0,0,0.4);
       transition: transform 0.3s ease, box-shadow 0.3s ease;
+      cursor: pointer;
     }
     .card:hover {
       transform: translateY(-5px) scale(1.02);
@@ -273,6 +273,44 @@
     }
     .card img:hover {
       transform: scale(1.05);
+    }
+
+    /* Hidden subordinate list for team cards */
+    .subordinates {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease-out;
+    }
+    .card.expanded .subordinates {
+      max-height: 300px;
+      transition: max-height 0.5s ease-in;
+    }
+    .subordinates ul {
+      list-style-type: none;
+      padding: 0;
+      margin-top: 10px;
+    }
+    .subordinates li {
+      background-color: #333;
+      margin: 5px 0;
+      padding: 8px;
+      border-radius: 4px;
+      color: #f5f5f5;
+    }
+
+    /* Hidden detailed explanation for strategy cards */
+    .strategy-details {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease-out;
+      margin-top: 10px;
+      font-size: 0.9em;
+      color: #cccccc;
+      text-align: left;
+    }
+    .card.expanded .strategy-details {
+      max-height: 500px;
+      transition: max-height 0.5s ease-in;
     }
 
     /* FOOTER */
@@ -365,32 +403,46 @@
       <h2>Our Strategy</h2>
       <div class="content">
         <p>
-          Our portfolio approach uses a blend of traditional technical indicators
-          and machine learning techniques, supported by macroeconomic insights.
-          We focus on dynamic multi-asset allocations and adaptive strategies to
-          navigate different market regimes.
+          Our portfolio approach combines advanced quantitative models with
+          traditional analysis to create a dynamic, multi-asset strategy that
+          adapts to changing market conditions. Click on each area below to learn how we generate superior returns.
         </p>
         <div class="cards">
-          <div class="card">
+          <!-- Adaptive Algorithms Card -->
+          <div class="card strategy-card" onclick="toggleCardExpansion(this)">
             <h3>Adaptive Algorithms</h3>
             <p>
-              We deploy state-of-the-art models like LSTM and XGBoost that
-              continuously learn and adapt to evolving market conditions.
+              Leveraging models like LSTM and XGBoost, our systems continuously adapt.
             </p>
+            <div class="strategy-details">
+              <p>
+                Our proprietary adaptive algorithm utilizes machine learning and statistical analysis to forecast market trends and dynamically adjust investment allocations in real time. By identifying market inefficiencies and capitalizing on emerging opportunities, our approach consistently delivers above-market, risk-adjusted returns. This state-of-the-art technology ensures your portfolio remains competitive and profitable in an ever-evolving financial landscape.
+              </p>
+            </div>
           </div>
-          <div class="card">
+          <!-- Dynamic Risk Management Card -->
+          <div class="card strategy-card" onclick="toggleCardExpansion(this)">
             <h3>Dynamic Risk Management</h3>
             <p>
-              Our robust risk controls and position sizing ensure that we manage
-              downside risk while capitalizing on growth opportunities.
+              Proactively managing risk while capturing profitable opportunities.
             </p>
+            <div class="strategy-details">
+              <p>
+                Our dynamic risk management system provides a robust framework for mitigating downside exposure while optimizing for potential gains. Through rigorous stress testing, real-time monitoring, and adaptive position sizing, we safeguard capital and ensure steady growth even in volatile markets. This proactive approach not only minimizes risk but also captures profitable opportunities, resulting in superior, risk-adjusted performance over the long term.
+              </p>
+            </div>
           </div>
-          <div class="card">
+          <!-- Macro Integration Card -->
+          <div class="card strategy-card" onclick="toggleCardExpansion(this)">
             <h3>Macro Integration</h3>
             <p>
-              Integrating macroeconomic indicators into our strategies helps us
-              maintain an edge in volatile and uncertain markets.
+              Combining global economic insights with quantitative precision.
             </p>
+            <div class="strategy-details">
+              <p>
+                By integrating comprehensive macroeconomic indicators into our investment strategy, we are able to anticipate market shifts and identify profitable trends before they fully materialize. Our seasoned analysts work in tandem with sophisticated quantitative models to dynamically adjust asset allocations, ensuring that your portfolio is primed to benefit from emerging global trends. This strategic foresight not only enhances overall performance but also delivers consistent, long-term returns.
+              </p>
+            </div>
           </div>
         </div>
       </div>
@@ -417,25 +469,57 @@
       <h2>Meet the Team</h2>
       <div class="content">
         <div class="cards">
-          <div class="card">
+          <!-- Jason Dank Card -->
+          <div class="card team-card" onclick="toggleCardExpansion(this)">
             <img src="HedgeTrimmerDark.png" alt="Team member photo of Jason Dank" loading="lazy">
             <h3><a href="https://www.linkedin.com/in/jason-dank/" target="_blank" rel="noopener">Jason Dank</a></h3>
-            <p>Chief Executive Officer & Chief Technology Officer</p>
+            <p>Chief Executive Officer &amp; Chief Technology Officer</p>
+            <div class="subordinates">
+              <ul>
+                <li>Apply Now – Executive Assistant</li>
+                <li>Apply Now – Technical Project Manager</li>
+                <li>Apply Now – Operations Coordinator</li>
+              </ul>
+            </div>
           </div>
-          <div class="card">
+          <!-- George Tatakis Card -->
+          <div class="card team-card" onclick="toggleCardExpansion(this)">
             <img src="HedgeTrimmerDark.png" alt="Team member photo of George Tatakis" loading="lazy">
             <h3><a href="https://www.linkedin.com/in/tatakisg/" target="_blank" rel="noopener">George Tatakis</a></h3>
             <p>Chief Investment Officer</p>
+            <div class="subordinates">
+              <ul>
+                <li>Apply Now – Portfolio Analyst</li>
+                <li>Apply Now – Market Researcher</li>
+                <li>Apply Now – Investment Strategist</li>
+              </ul>
+            </div>
           </div>
-          <div class="card">
+          <!-- Conor Mathews Card -->
+          <div class="card team-card" onclick="toggleCardExpansion(this)">
             <img src="HedgeTrimmerDark.png" alt="Team member photo of Conor Mathews" loading="lazy">
             <h3><a href="https://www.linkedin.com/in/conor-matthews19/" target="_blank" rel="noopener">Conor Mathews</a></h3>
             <p>Chief Financial Officer</p>
+            <div class="subordinates">
+              <ul>
+                <li>Apply Now – Financial Analyst</li>
+                <li>Apply Now – Accounting Specialist</li>
+                <li>Apply Now – Budget Manager</li>
+              </ul>
+            </div>
           </div>
-          <div class="card">
+          <!-- Ryan Matheson Card -->
+          <div class="card team-card" onclick="toggleCardExpansion(this)">
             <img src="HedgeTrimmerDark.png" alt="Team member photo of Ryan Matheson" loading="lazy">
             <h3><a href="https://www.linkedin.com/in/mathesonryan/" target="_blank" rel="noopener">Ryan Matheson</a></h3>
             <p>Chief Risk Officer</p>
+            <div class="subordinates">
+              <ul>
+                <li>Apply Now – Risk Analyst</li>
+                <li>Apply Now – Compliance Officer</li>
+                <li>Apply Now – Risk Management Associate</li>
+              </ul>
+            </div>
           </div>
         </div>
       </div>
@@ -591,6 +675,11 @@
       revealOnScroll();
       window.addEventListener("scroll", revealOnScroll);
     });
+
+    /* TOGGLE EXPANSION FOR BOTH STRATEGY AND TEAM CARDS */
+    function toggleCardExpansion(card) {
+      card.classList.toggle('expanded');
+    }
   </script>
 </body>
 </html>
