@@ -298,19 +298,60 @@
       color: #f5f5f5;
     }
 
-    /* Hidden detailed explanation for strategy cards */
+    /* Enhanced Strategy Section UI */
+    .strategy-cards {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 30px;
+      margin-top: 40px;
+    }
+    .strategy-card {
+      background-color: #1c1c1c;
+      width: 320px;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+      cursor: pointer;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+    .strategy-card:hover {
+      transform: translateY(-8px) scale(1.02);
+      box-shadow: 0 8px 16px rgba(0,0,0,0.7);
+    }
+    .strategy-card .card-header {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+    .strategy-card .card-icon {
+      width: 40px;
+      height: 40px;
+    }
+    .strategy-card h3 {
+      font-size: 1.4em;
+      color: #0077cc;
+      margin: 0;
+    }
+    .card-summary {
+      font-size: 1em;
+      color: #cccccc;
+      margin-bottom: 15px;
+    }
     .strategy-details {
       max-height: 0;
       overflow: hidden;
-      transition: max-height 0.3s ease-out;
-      margin-top: 10px;
-      font-size: 0.9em;
-      color: #cccccc;
-      text-align: left;
+      transition: max-height 0.4s ease;
+      font-size: 0.95em;
+      color: #bbbbbb;
+      line-height: 1.6;
     }
-    .card.expanded .strategy-details {
-      max-height: 500px;
-      transition: max-height 0.5s ease-in;
+    .strategy-card.expanded .strategy-details {
+      max-height: 200px;
+      margin-top: 10px;
     }
 
     /* FOOTER */
@@ -372,9 +413,7 @@
     <div class="hero-content">
       <h1 id="typewriter">HedgeTrimmer Capital</h1>
       <p>
-        Where cutting-edge algorithms meet market expertise. We combine
-        sophisticated multi-asset strategies with real-time data to unlock
-        investment opportunities in today’s dynamic markets.
+        Where cutting-edge algorithms meet market expertise. We combine sophisticated multi-asset strategies with real-time data to unlock investment opportunities in today’s dynamic markets.
       </p>
       <button onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'})">
         Get In Touch
@@ -388,59 +427,63 @@
       <h2>About Us</h2>
       <div class="content">
         <p>
-          HedgeTrimmer Capital is a modern hedge fund built on advanced analytics,
-          innovative algorithms, and a relentless pursuit of excellence. Our team
-          leverages deep market insights and cutting-edge technology to deliver
-          superior risk-adjusted returns.
+          HedgeTrimmer Capital is a modern hedge fund built on advanced analytics, innovative algorithms, and a relentless pursuit of excellence. Our integrated trading platform offers robust backtesting, real-time execution, AI-driven signal generation, and comprehensive risk management.
         </p>
       </div>
     </div>
   </section>
 
-  <!-- STRATEGY SECTION WITH ANIMATED GRADIENT BACKGROUND -->
+  <!-- STRATEGY SECTION WITH ENHANCED UI -->
   <section id="strategy" class="section-gradient">
     <div class="container">
       <h2>Our Strategy</h2>
       <div class="content">
-        <p>
-          Our portfolio approach combines advanced quantitative models with
-          traditional analysis to create a dynamic, multi-asset strategy that
-          adapts to changing market conditions. Click on each area below to learn how we generate superior returns.
+        <p style="max-width:800px; margin:20px auto; font-size:1.15em;">
+          Our approach is rooted in cutting-edge technology and data science. By leveraging advanced quantitative models, including machine learning techniques like RandomForest, LSTM, and XGBoost, combined with dynamic ensemble methods and macroeconomic insights, we build strategies that are both adaptive and robust. Explore each core pillar below to see how our code base drives superior, risk-adjusted returns.
         </p>
-        <div class="cards">
+        <div class="strategy-cards">
           <!-- Adaptive Algorithms Card -->
           <div class="card strategy-card" onclick="toggleCardExpansion(this)">
-            <h3>Adaptive Algorithms</h3>
-            <p>
-              Leveraging models like LSTM and XGBoost, our systems continuously adapt.
+            <div class="card-header">
+              <img src="hedgedev.png" alt="Adaptive Algorithms Icon" class="card-icon">
+              <h3>Adaptive Algorithms</h3>
+            </div>
+            <p class="card-summary">
+              Using LSTM, XGBoost, and ensemble models to continuously refine market forecasts.
             </p>
             <div class="strategy-details">
               <p>
-                Our proprietary adaptive algorithm utilizes machine learning and statistical analysis to forecast market trends and dynamically adjust investment allocations in real time. By identifying market inefficiencies and capitalizing on emerging opportunities, our approach consistently delivers above-market, risk-adjusted returns. This state-of-the-art technology ensures your portfolio remains competitive and profitable in an ever-evolving financial landscape.
+                Our adaptive algorithms learn from both historical and real-time data. Through advanced machine learning techniques, they dynamically adjust investment allocations to capitalize on emerging market opportunities and mitigate risks.
               </p>
             </div>
           </div>
           <!-- Dynamic Risk Management Card -->
           <div class="card strategy-card" onclick="toggleCardExpansion(this)">
-            <h3>Dynamic Risk Management</h3>
-            <p>
-              Proactively managing risk while capturing profitable opportunities.
+            <div class="card-header">
+              <img src="hedgeQuant.png" alt="Risk Management Icon" class="card-icon">
+              <h3>Dynamic Risk Management</h3>
+            </div>
+            <p class="card-summary">
+              Integrated risk controls with real-time monitoring and adaptive position sizing.
             </p>
             <div class="strategy-details">
               <p>
-                Our dynamic risk management system provides a robust framework for mitigating downside exposure while optimizing for potential gains. Through rigorous stress testing, real-time monitoring, and adaptive position sizing, we safeguard capital and ensure steady growth even in volatile markets. This proactive approach not only minimizes risk but also captures profitable opportunities, resulting in superior, risk-adjusted performance over the long term.
+                Our system employs stop-loss, take-profit, and trailing stop mechanisms triggered by rigorous analytics. This proactive risk management framework protects capital and ensures sustainable portfolio growth even in volatile markets.
               </p>
             </div>
           </div>
           <!-- Macro Integration Card -->
           <div class="card strategy-card" onclick="toggleCardExpansion(this)">
-            <h3>Macro Integration</h3>
-            <p>
-              Combining global economic insights with quantitative precision.
+            <div class="card-header">
+              <img src="hedgeQuant.png" alt="Macro Integration Icon" class="card-icon">
+              <h3>Macro Integration</h3>
+            </div>
+            <p class="card-summary">
+              Blending global economic insights with quantitative precision for strategic asset allocation.
             </p>
             <div class="strategy-details">
               <p>
-                By integrating comprehensive macroeconomic indicators into our investment strategy, we are able to anticipate market shifts and identify profitable trends before they fully materialize. Our seasoned analysts work in tandem with sophisticated quantitative models to dynamically adjust asset allocations, ensuring that your portfolio is primed to benefit from emerging global trends. This strategic foresight not only enhances overall performance but also delivers consistent, long-term returns.
+                We incorporate key macroeconomic indicators into our models to dynamically shift asset allocations. This ensures our portfolios are positioned to capture emerging trends and are resilient against systemic risks.
               </p>
             </div>
           </div>
@@ -455,9 +498,7 @@
       <h2>Performance</h2>
       <div class="content">
         <p>
-          Our strategies are backtested rigorously over multiple market cycles.
-          We believe in transparency and continuous improvement, ensuring that
-          our methods are both innovative and resilient.
+          Our strategies are rigorously backtested and continuously refined with live market data. Transparency, innovation, and precision drive our commitment to delivering superior performance and robust risk management.
         </p>
       </div>
     </div>
@@ -476,9 +517,9 @@
             <p>Chief Executive Officer &amp; Chief Technology Officer</p>
             <div class="subordinates">
               <ul>
-                <li>Apply Now – Executive Assistant</li>
-                <li>Apply Now – Technical Project Manager</li>
-                <li>Apply Now – Operations Coordinator</li>
+                <li>Apply Now – Head of Algorithmic Research</li>
+                <li>Apply Now – Lead Systems Architect</li>
+                <li>Apply Now – DevOps Specialist</li>
               </ul>
             </div>
           </div>
@@ -489,9 +530,9 @@
             <p>Chief Investment Officer</p>
             <div class="subordinates">
               <ul>
-                <li>Apply Now – Portfolio Analyst</li>
-                <li>Apply Now – Market Researcher</li>
-                <li>Apply Now – Investment Strategist</li>
+                <li>Apply Now – Quantitative Research Analyst</li>
+                <li>Apply Now – Macro Strategy Analyst</li>
+                <li>Apply Now – Risk Modeling Specialist</li>
               </ul>
             </div>
           </div>
@@ -502,9 +543,9 @@
             <p>Chief Financial Officer</p>
             <div class="subordinates">
               <ul>
-                <li>Apply Now – Financial Analyst</li>
-                <li>Apply Now – Accounting Specialist</li>
-                <li>Apply Now – Budget Manager</li>
+                <li>Apply Now – Financial Data Analyst</li>
+                <li>Apply Now – Strategic Finance Advisor</li>
+                <li>Apply Now – Compliance & Reporting Specialist</li>
               </ul>
             </div>
           </div>
@@ -515,9 +556,9 @@
             <p>Chief Risk Officer</p>
             <div class="subordinates">
               <ul>
-                <li>Apply Now – Risk Analyst</li>
-                <li>Apply Now – Compliance Officer</li>
-                <li>Apply Now – Risk Management Associate</li>
+                <li>Apply Now – Advanced Risk Analytics Specialist</li>
+                <li>Apply Now – Regulatory Compliance Advisor</li>
+                <li>Apply Now – Quantitative Risk Manager</li>
               </ul>
             </div>
           </div>
@@ -532,8 +573,7 @@
       <h2>Contact Us</h2>
       <div class="content">
         <p>
-          Ready to learn more? Get in touch with us to explore investment
-          opportunities or discuss our cutting-edge strategies.
+          Ready to learn more? Get in touch with us to explore investment opportunities or discuss our cutting-edge trading solutions.
         </p>
         <p>LinkedIn: <a href="https://www.linkedin.com/company/hedgetrimmer/" target="_blank" rel="noopener">@HedgeTrimmer</a></p>
         <p>GitHub: <a href="https://github.com/Hedge-Trimmer" target="_blank" rel="noopener">Hedge Trimmer</a></p>
@@ -547,10 +587,7 @@
       <p>&copy; 2025 HedgeTrimmer Capital. All rights reserved.</p>
       <div class="disclaimer">
         <p>
-          Disclaimer: This website is for informational purposes only and does not
-          constitute an offer to sell, or a solicitation of an offer to buy, any
-          security or investment product. Past performance is not necessarily
-          indicative of future results. Investing involves risk of loss.
+          Disclaimer: This website is for informational purposes only and does not constitute an offer to sell, or a solicitation of an offer to buy, any security or investment product. Past performance is not necessarily indicative of future results. Investing involves risk of loss.
         </p>
       </div>
     </div>
