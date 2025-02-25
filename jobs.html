@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>HedgeTrimmer Capital – Volunteer Job Openings</title>
+  <meta name="description" content="Explore volunteer career opportunities at HedgeTrimmer Capital. Join our innovative team shaping the future of finance.">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="icon" href="logo.png" type="image/png">
+  <style>
+    /* Global Styles */
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background-color: #2e2e2e;
+      color: #f5f5f5;
+      margin: 0;
+      padding: 0;
+      line-height: 1.6;
+    }
+    header, footer {
+      background-color: #1c1c1c;
+      padding: 20px;
+      text-align: center;
+    }
+    .container {
+      width: 90%;
+      max-width: 1200px;
+      margin: 20px auto;
+    }
+    h1, h2 {
+      text-align: center;
+    }
+    nav a {
+      margin: 0 10px;
+      font-weight: bold;
+      color: #0077cc;
+      text-decoration: none;
+    }
+    nav a:hover {
+      text-decoration: underline;
+    }
+    /* Job Listings Styles */
+    .job-listings {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+      margin-top: 40px;
+    }
+    .job-card {
+      background-color: #1c1c1c;
+      padding: 20px;
+      border-radius: 8px;
+      width: 300px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.4);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      display: flex;
+      flex-direction: column;
+    }
+    .job-card:hover {
+      transform: translateY(-5px) scale(1.02);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.6);
+    }
+    .job-card h3 {
+      margin-bottom: 10px;
+      color: #0077cc;
+    }
+    .job-card p {
+      font-size: 0.95em;
+      color: #cccccc;
+    }
+    /* Details section with smooth expansion and internal scrolling */
+    .details {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.5s ease;
+    }
+    .details.open {
+      max-height: 400px; /* Adjust this value as needed */
+      overflow-y: auto;
+    }
+    .details ul {
+      margin: 5px 0 10px 20px;
+      padding: 0;
+    }
+    .toggle-btn {
+      margin-top: 15px;
+      padding: 10px 20px;
+      background-color: #0077cc;
+      color: #2e2e2e;
+      border: none;
+      border-radius: 25px;
+      cursor: pointer;
+      transition: background-color 0.3s ease, transform 0.3s ease;
+    }
+    .toggle-btn:hover {
+      background-color: #005fa3;
+      transform: scale(1.05);
+    }
+    .apply-btn {
+      display: inline-block;
+      margin-top: 10px;
+      padding: 10px 20px;
+      background-color: #0077cc;
+      color: #2e2e2e;
+      border: none;
+      border-radius: 25px;
+      text-decoration: none;
+      transition: background-color 0.3s ease, transform 0.3s ease;
+      cursor: pointer;
+    }
+    .apply-btn:hover {
+      background-color: #005fa3;
+      transform: scale(1.05);
+    }
+  </style>
+</head>
+<body>
+  <!-- HEADER -->
+  <header>
+    <div class="container">
+      <h1>HedgeTrimmer Capital</h1>
+      <nav>
+        <a href="index.html">Home</a> |
+        <a href="jobs.html">Jobs</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- MAIN CONTENT -->
+  <main class="container">
+    <h2>Volunteer Job Openings</h2>
+    <div class="job-listings">
+
+      <!-- Job Card 1: Head of Algorithmic Research -->
+      <div class="job-card">
+        <h3>Head of Algorithmic Research</h3>
+        <p>Lead the charge in developing innovative trading models.</p>
+        <button class="toggle-btn" onclick="toggleDetails(this)">View Details</button>
+        <div class="details">
+          <p><strong>Description:</strong> Join HedgeTrimmer Capital as our Head of Algorithmic Research and lead the charge in developing innovative trading models. In this volunteer role, you’ll spearhead research into algorithmic strategies, analyze market data, and collaborate with a dynamic team of quantitative experts.</p>
+          <p><strong>Responsibilities:</strong></p>
+          <ul>
+            <li>Oversee the design, development, and validation of algorithmic trading models.</li>
+            <li>Analyze large datasets to identify profitable market trends.</li>
+            <li>Mentor team members and coordinate cross-functional research projects.</li>
+            <li>Present research insights and model performance to leadership.</li>
+          </ul>
+          <p><strong>Qualifications:</strong></p>
+          <ul>
+            <li>Advanced degree in Mathematics, Computer Science, Finance, or related field.</li>
+            <li>Proven experience in algorithmic trading and quantitative research.</li>
+            <li>Proficiency in programming languages (Python, R, MATLAB).</li>
+            <li>Strong leadership and communication skills.</li>
+          </ul>
+          <p><strong>Volunteer Opportunity:</strong> Enhance your career portfolio by working on groundbreaking research in a fast-paced hedge fund environment.</p>
+          <a class="apply-btn" href="#" onclick="return generateMailto(this)">Apply Now</a>
+        </div>
+      </div>
+
+      <!-- Job Card 2: Lead Systems Architect -->
+      <div class="job-card">
+        <h3>Lead Systems Architect</h3>
+        <p>Design and oversee our technology infrastructure.</p>
+        <button class="toggle-btn" onclick="toggleDetails(this)">View Details</button>
+        <div class="details">
+          <p><strong>Description:</strong> HedgeTrimmer Capital is seeking a Lead Systems Architect to design and oversee our technology infrastructure in this volunteer research role. Your expertise will ensure that our research and trading platforms are robust, secure, and scalable.</p>
+          <p><strong>Responsibilities:</strong></p>
+          <ul>
+            <li>Design, implement, and maintain IT systems to support research operations.</li>
+            <li>Integrate research tools with trading and data management systems.</li>
+            <li>Oversee cybersecurity measures and ensure data integrity.</li>
+            <li>Collaborate with technical and research teams to innovate system solutions.</li>
+          </ul>
+          <p><strong>Qualifications:</strong></p>
+          <ul>
+            <li>Demonstrated experience in systems architecture and IT infrastructure.</li>
+            <li>Strong background in network security, cloud services, and data management.</li>
+            <li>Proficiency with modern tech stacks and development best practices.</li>
+            <li>Excellent problem-solving and collaborative skills.</li>
+          </ul>
+          <p><strong>Volunteer Opportunity:</strong> Leverage your technical expertise to build the backbone of a forward-thinking hedge fund.</p>
+          <a class="apply-btn" href="#" onclick="return generateMailto(this)">Apply Now</a>
+        </div>
+      </div>
+
+      <!-- Job Card 3: Head of Investor Relations -->
+      <div class="job-card">
+        <h3>Head of Investor Relations</h3>
+        <p>Bridge research and investment by communicating insights to investors.</p>
+        <button class="toggle-btn" onclick="toggleDetails(this)">View Details</button>
+        <div class="details">
+          <p><strong>Description:</strong> Take the lead in bridging research and investment at HedgeTrimmer Capital as our Head of Investor Relations. This volunteer role focuses on communicating our research insights, engaging with investors, and supporting capital growth.</p>
+          <p><strong>Responsibilities:</strong></p>
+          <ul>
+            <li>Develop and execute investor communication strategies.</li>
+            <li>Build and maintain strong relationships with current and potential investors.</li>
+            <li>Represent the firm at industry events and conferences.</li>
+            <li>Translate complex research findings into compelling narratives.</li>
+          </ul>
+          <p><strong>Qualifications:</strong></p>
+          <ul>
+            <li>Background in finance, communications, or investor relations.</li>
+            <li>Strong interpersonal and presentation skills.</li>
+            <li>Proven ability in relationship building and strategic communication.</li>
+            <li>A deep understanding of market trends and investor expectations.</li>
+          </ul>
+          <p><strong>Volunteer Opportunity:</strong> Gain invaluable experience in investor relations while supporting our innovative research initiatives.</p>
+          <a class="apply-btn" href="#" onclick="return generateMailto(this)">Apply Now</a>
+        </div>
+      </div>
+
+      <!-- Job Card 4: Quantitative Research Analyst -->
+      <div class="job-card">
+        <h3>Quantitative Research Analyst</h3>
+        <p>Develop and test models that inform our investment strategies.</p>
+        <button class="toggle-btn" onclick="toggleDetails(this)">View Details</button>
+        <div class="details">
+          <p><strong>Description:</strong> HedgeTrimmer Capital invites you to join our research team as a Quantitative Research Analyst. This volunteer position allows you to apply your quantitative skills to develop and test models that inform our investment strategies.</p>
+          <p><strong>Responsibilities:</strong></p>
+          <ul>
+            <li>Conduct detailed quantitative analysis of market data.</li>
+            <li>Develop and validate financial models.</li>
+            <li>Collaborate with researchers to enhance trading strategies.</li>
+            <li>Communicate insights to support strategic decision-making.</li>
+          </ul>
+          <p><strong>Qualifications:</strong></p>
+          <ul>
+            <li>Degree in Mathematics, Statistics, Finance, or related field.</li>
+            <li>Proficiency in data analysis and programming (Python, R, etc.).</li>
+            <li>Strong analytical and problem-solving abilities.</li>
+            <li>Excellent attention to detail and communication skills.</li>
+          </ul>
+          <p><strong>Volunteer Opportunity:</strong> Build your expertise in quantitative finance while contributing to innovative investment research.</p>
+          <a class="apply-btn" href="#" onclick="return generateMailto(this)">Apply Now</a>
+        </div>
+      </div>
+
+      <!-- Job Card 5: Macro Strategy Analyst -->
+      <div class="job-card">
+        <h3>Macro Strategy Analyst</h3>
+        <p>Analyze global economic trends to shape our market outlook.</p>
+        <button class="toggle-btn" onclick="toggleDetails(this)">View Details</button>
+        <div class="details">
+          <p><strong>Description:</strong> As a Macro Strategy Analyst at HedgeTrimmer Capital, you will delve into global economic trends and geopolitical events to shape our strategic market outlook. This volunteer role is ideal for professionals with a keen understanding of macroeconomic dynamics.</p>
+          <p><strong>Responsibilities:</strong></p>
+          <ul>
+            <li>Analyze macroeconomic indicators and global trends.</li>
+            <li>Develop comprehensive reports and strategic insights.</li>
+            <li>Collaborate with the research team to integrate macro perspectives.</li>
+            <li>Monitor and interpret the impact of geopolitical events on markets.</li>
+          </ul>
+          <p><strong>Qualifications:</strong></p>
+          <ul>
+            <li>Degree in Economics, Finance, or related field.</li>
+            <li>Strong research and analytical skills.</li>
+            <li>Ability to synthesize complex data into actionable insights.</li>
+            <li>Excellent written and verbal communication skills.</li>
+          </ul>
+          <p><strong>Volunteer Opportunity:</strong> Apply your macroeconomic expertise in a dynamic environment and drive strategic investment decisions.</p>
+          <a class="apply-btn" href="#" onclick="return generateMailto(this)">Apply Now</a>
+        </div>
+      </div>
+
+      <!-- Job Card 6: Risk Modeling Specialist -->
+      <div class="job-card">
+        <h3>Risk Modeling Specialist</h3>
+        <p>Design advanced risk models to evaluate and mitigate market risks.</p>
+        <button class="toggle-btn" onclick="toggleDetails(this)">View Details</button>
+        <div class="details">
+          <p><strong>Description:</strong> Join our research team as a Risk Modeling Specialist at HedgeTrimmer Capital and help safeguard our investment strategies. In this volunteer role, you’ll design advanced risk models and stress-testing frameworks to evaluate and mitigate market risks.</p>
+          <p><strong>Responsibilities:</strong></p>
+          <ul>
+            <li>Develop and refine models to assess portfolio and market risks.</li>
+            <li>Perform stress-testing and scenario analyses.</li>
+            <li>Collaborate with quantitative teams to integrate risk assessments.</li>
+            <li>Present risk findings to support strategic decisions.</li>
+          </ul>
+          <p><strong>Qualifications:</strong></p>
+          <ul>
+            <li>Advanced degree in Finance, Statistics, or related field.</li>
+            <li>Experience in risk modeling and quantitative analysis.</li>
+            <li>Proficiency in statistical software and programming.</li>
+            <li>Strong analytical and communication skills.</li>
+          </ul>
+          <p><strong>Volunteer Opportunity:</strong> Enhance your risk management expertise while contributing to the stability of a pioneering hedge fund.</p>
+          <a class="apply-btn" href="#" onclick="return generateMailto(this)">Apply Now</a>
+        </div>
+      </div>
+
+      <!-- Job Card 7: Financial Data Analyst -->
+      <div class="job-card">
+        <h3>Financial Data Analyst</h3>
+        <p>Support our research through meticulous data gathering and analysis.</p>
+        <button class="toggle-btn" onclick="toggleDetails(this)">View Details</button>
+        <div class="details">
+          <p><strong>Description:</strong> HedgeTrimmer Capital is seeking a Financial Data Analyst to support our research efforts through meticulous data gathering and analysis. This volunteer role is perfect for someone passionate about transforming data into actionable insights.</p>
+          <p><strong>Responsibilities:</strong></p>
+          <ul>
+            <li>Collect, clean, and analyze financial data from multiple sources.</li>
+            <li>Develop data visualizations and interactive dashboards.</li>
+            <li>Support the research team with detailed data insights.</li>
+            <li>Ensure data accuracy and consistency in reporting.</li>
+          </ul>
+          <p><strong>Qualifications:</strong></p>
+          <ul>
+            <li>Degree in Finance, Economics, Data Science, or a related field.</li>
+            <li>Proficiency with data analysis tools (Excel, Tableau, PowerBI, etc.).</li>
+            <li>Strong analytical skills and attention to detail.</li>
+            <li>Excellent problem-solving and communication abilities.</li>
+          </ul>
+          <p><strong>Volunteer Opportunity:</strong> Enhance your data analysis skills and contribute to high-impact research in the hedge fund sector.</p>
+          <a class="apply-btn" href="#" onclick="return generateMailto(this)">Apply Now</a>
+        </div>
+      </div>
+
+      <!-- Job Card 8: Strategic Finance Advisor -->
+      <div class="job-card">
+        <h3>Strategic Finance Advisor</h3>
+        <p>Provide high-level guidance on financial strategy and capital allocation.</p>
+        <button class="toggle-btn" onclick="toggleDetails(this)">View Details</button>
+        <div class="details">
+          <p><strong>Description:</strong> Leverage your financial acumen as a Strategic Finance Advisor at HedgeTrimmer Capital. In this volunteer role, you’ll provide high-level guidance on financial strategy, capital allocation, and long-term growth planning.</p>
+          <p><strong>Responsibilities:</strong></p>
+          <ul>
+            <li>Advise on strategic financial planning and investment decisions.</li>
+            <li>Analyze financial performance and market trends.</li>
+            <li>Collaborate with senior leadership on strategic initiatives.</li>
+            <li>Translate complex financial data into strategic recommendations.</li>
+          </ul>
+          <p><strong>Qualifications:</strong></p>
+          <ul>
+            <li>Advanced degree in Finance, Business Administration, or related field.</li>
+            <li>Extensive experience in financial strategy and analysis.</li>
+            <li>Strong analytical and communication skills.</li>
+            <li>Ability to work collaboratively in a fast-paced environment.</li>
+          </ul>
+          <p><strong>Volunteer Opportunity:</strong> Use your strategic expertise to shape the future of a dynamic hedge fund while expanding your professional network.</p>
+          <a class="apply-btn" href="#" onclick="return generateMailto(this)">Apply Now</a>
+        </div>
+      </div>
+
+      <!-- Job Card 9: Compliance & Reporting Specialist -->
+      <div class="job-card">
+        <h3>Compliance & Reporting Specialist</h3>
+        <p>Ensure operational integrity by maintaining regulatory compliance and comprehensive reporting.</p>
+        <button class="toggle-btn" onclick="toggleDetails(this)">View Details</button>
+        <div class="details">
+          <p><strong>Description:</strong> Help ensure operational integrity at HedgeTrimmer Capital as a Compliance & Reporting Specialist. This volunteer role focuses on maintaining regulatory compliance and preparing comprehensive reports to support our research and investment activities.</p>
+          <p><strong>Responsibilities:</strong></p>
+          <ul>
+            <li>Monitor compliance with industry regulations and standards.</li>
+            <li>Develop and maintain internal and external reporting protocols.</li>
+            <li>Collaborate with legal, risk, and research teams.</li>
+            <li>Implement best practices for compliance and reporting.</li>
+          </ul>
+          <p><strong>Qualifications:</strong></p>
+          <ul>
+            <li>Degree in Law, Finance, or related field.</li>
+            <li>Experience in regulatory compliance or reporting.</li>
+            <li>Detail-oriented with strong analytical skills.</li>
+            <li>Excellent organizational and communication abilities.</li>
+          </ul>
+          <p><strong>Volunteer Opportunity:</strong> Contribute your compliance expertise to maintaining high standards in a fast-paced financial environment.</p>
+          <a class="apply-btn" href="#" onclick="return generateMailto(this)">Apply Now</a>
+        </div>
+      </div>
+
+      <!-- Job Card 10: Advanced Risk Analytics Specialist -->
+      <div class="job-card">
+        <h3>Advanced Risk Analytics Specialist</h3>
+        <p>Apply cutting-edge techniques to evaluate risks and develop actionable insights.</p>
+        <button class="toggle-btn" onclick="toggleDetails(this)">View Details</button>
+        <div class="details">
+          <p><strong>Description:</strong> HedgeTrimmer Capital is looking for an Advanced Risk Analytics Specialist to join our volunteer research team. In this role, you’ll apply cutting-edge analytical techniques to evaluate risks and develop actionable insights for our investment strategies.</p>
+          <p><strong>Responsibilities:</strong></p>
+          <ul>
+            <li>Develop and implement sophisticated risk analytics methodologies.</li>
+            <li>Analyze complex risk data and identify emerging trends.</li>
+            <li>Integrate risk analytics into broader research and decision-making processes.</li>
+            <li>Present analytical insights to senior management.</li>
+          </ul>
+          <p><strong>Qualifications:</strong></p>
+          <ul>
+            <li>Advanced degree in Finance, Statistics, or related field.</li>
+            <li>Proven experience in risk analytics and quantitative research.</li>
+            <li>Proficiency in statistical software and programming languages.</li>
+            <li>Strong problem-solving and communication skills.</li>
+          </ul>
+          <p><strong>Volunteer Opportunity:</strong> Elevate your career by contributing to advanced research in risk analytics at a forward-thinking hedge fund.</p>
+          <a class="apply-btn" href="#" onclick="return generateMailto(this)">Apply Now</a>
+        </div>
+      </div>
+
+      <!-- Job Card 11: Regulatory Compliance Advisor -->
+      <div class="job-card">
+        <h3>Regulatory Compliance Advisor</h3>
+        <p>Provide expert guidance on navigating the evolving regulatory landscape.</p>
+        <button class="toggle-btn" onclick="toggleDetails(this)">View Details</button>
+        <div class="details">
+          <p><strong>Description:</strong> Join our team as a Regulatory Compliance Advisor at HedgeTrimmer Capital, where you will provide expert guidance on navigating the evolving regulatory landscape. This volunteer role is vital to ensuring our research and operations remain compliant.</p>
+          <p><strong>Responsibilities:</strong></p>
+          <ul>
+            <li>Monitor and interpret changes in financial regulations.</li>
+            <li>Develop and implement compliance policies and procedures.</li>
+            <li>Advise internal teams on regulatory requirements.</li>
+            <li>Liaise with regulatory bodies and industry stakeholders as needed.</li>
+          </ul>
+          <p><strong>Qualifications:</strong></p>
+          <ul>
+            <li>Degree in Law, Finance, or a related field.</li>
+            <li>Extensive experience in regulatory compliance and advisory roles.</li>
+            <li>Strong understanding of financial regulatory frameworks.</li>
+            <li>Excellent analytical and communication skills.</li>
+          </ul>
+          <p><strong>Volunteer Opportunity:</strong> Leverage your expertise to help shape regulatory strategies for an innovative hedge fund.</p>
+          <a class="apply-btn" href="#" onclick="return generateMailto(this)">Apply Now</a>
+        </div>
+      </div>
+
+      <!-- Job Card 12: Quantitative Risk Manager -->
+      <div class="job-card">
+        <h3>Quantitative Risk Manager</h3>
+        <p>Oversee the development and management of our risk models.</p>
+        <button class="toggle-btn" onclick="toggleDetails(this)">View Details</button>
+        <div class="details">
+          <p><strong>Description:</strong> HedgeTrimmer Capital is seeking a Quantitative Risk Manager to oversee the development and management of our risk models. In this volunteer research role, you’ll work closely with our quantitative team to ensure that our investment strategies are robust against market uncertainties.</p>
+          <p><strong>Responsibilities:</strong></p>
+          <ul>
+            <li>Develop and manage quantitative risk models.</li>
+            <li>Conduct regular risk assessments and scenario analyses.</li>
+            <li>Collaborate with research teams to integrate risk metrics.</li>
+            <li>Report risk insights to senior management and propose mitigation strategies.</li>
+          </ul>
+          <p><strong>Qualifications:</strong></p>
+          <ul>
+            <li>Advanced degree in Finance, Statistics, or related field.</li>
+            <li>Experience in quantitative risk management and model development.</li>
+            <li>Proficiency in statistical programming and data analysis.</li>
+            <li>Excellent analytical, organizational, and communication skills.</li>
+          </ul>
+          <p><strong>Volunteer Opportunity:</strong> Apply your quantitative risk management skills in a dynamic environment and help safeguard our investment strategies.</p>
+          <a class="apply-btn" href="#" onclick="return generateMailto(this)">Apply Now</a>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <p>&copy; 2025 HedgeTrimmer Capital. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    // Smoothly toggle the open class to expand/collapse job details
+    function toggleDetails(button) {
+      const details = button.nextElementSibling;
+      if (details.classList.contains("open")) {
+        details.classList.remove("open");
+        button.textContent = "View Details";
+      } else {
+        details.classList.add("open");
+        button.textContent = "Hide Details";
+      }
+    }
+
+    // Dynamically generate a mailto link based on the job title
+    function generateMailto(link) {
+      // Find the closest job-card and its title
+      const jobCard = link.closest('.job-card');
+      const jobTitle = jobCard.querySelector('h3').textContent.trim();
+      const email = "hedgetrimmercapital@gmail.com";
+      const subject = encodeURIComponent("Application for " + jobTitle);
+      const mailtoLink = "mailto:" + email + "?subject=" + subject;
+      // Redirect to the generated mailto URL
+      window.location.href = mailtoLink;
+      return false; // Prevent default link behavior
+    }
+  </script>
+</body>
+</html>
