@@ -6,7 +6,7 @@
   <title>HedgeTrimmer Capital – Innovative Multi-Asset Hedge Fund</title>
 
   <!-- Meta Description for SEO -->
-  <meta name="description" content="HedgeTrimmer Capital is a modern hedge fund combining advanced algorithms, market expertise, and macro insights to deliver superior risk-adjusted returns." />
+  <meta name="description" content="HedgeTrimmer Capital is an AI-powered hedge fund combining advanced analytics, machine learning, and macro insights to deliver superior risk-adjusted returns." />
 
   <!-- Open Graph Tags for social sharing -->
   <meta property="og:title" content="HedgeTrimmer Capital – AI-Driven Hedge Fund for Smarter Trading" />
@@ -128,7 +128,7 @@
       }
     }
 
-    /* HERO SECTION WITH PARTICLES BACKGROUND */
+    /* HERO SECTION */
     .hero {
       position: relative;
       height: 90vh;
@@ -139,7 +139,7 @@
       text-align: center;
       overflow: hidden;
     }
-    /* Particles container positioned behind hero content */
+    /* Particles.js container */
     #particles-js {
       position: absolute;
       width: 100%;
@@ -148,10 +148,30 @@
       left: 0;
       z-index: 0;
     }
+    /* Candlestick overlay canvas */
+    #candleOverlay {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      z-index: 0;
+      pointer-events: none;
+    }
     .hero-content {
       position: relative;
       z-index: 1;
       padding: 0 20px;
+      display: flex;
+      justify-content: center;
+    }
+    /* Semi-transparent backdrop for text */
+    .hero-text-bg {
+      background-color: rgba(10, 1, 1, 0.55);
+      padding: 30px 40px;
+      border-radius: 10px;
+      max-width: 700px;
+      text-align: center;
     }
     .hero h1 {
       font-size: 3em;
@@ -161,8 +181,8 @@
     }
     .hero p {
       font-size: 1.2em;
-      max-width: 700px;
       margin: auto;
+      max-width: 700px;
     }
     .hero button {
       margin-top: 30px;
@@ -170,7 +190,7 @@
       font-size: 1em;
       background-color: #0077cc;
       border: none;
-      border-radius: 25px;
+      border-radius: 3px;
       color: #2e2e2e;
       cursor: pointer;
       transition: background-color 0.3s ease, transform 0.3s ease;
@@ -180,7 +200,7 @@
       transform: scale(1.05);
     }
 
-    /* ENHANCED ANIMATED GRADIENT BACKGROUND FOR SECTIONS */
+    /* Animated gradient background for sections */
     .section-gradient {
       position: relative;
       overflow: hidden;
@@ -204,7 +224,7 @@
       100% { background-position: 0% 50%; }
     }
 
-    /* GENERAL SECTION STYLES & SCROLL REVEAL */
+    /* General Section Styles */
     section {
       padding: 60px 0;
       border-bottom: 1px solid #444;
@@ -235,7 +255,7 @@
       padding: 0 20px;
     }
 
-    /* CARDS */
+    /* Cards */
     .cards {
       display: flex;
       flex-wrap: wrap;
@@ -246,7 +266,7 @@
     .card {
       background-color: #1c1c1c;
       padding: 20px;
-      border-radius: 8px;
+      border-radius: 2px;
       width: 300px;
       box-shadow: 0 2px 8px rgba(0,0,0,0.4);
       transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -267,7 +287,7 @@
     .card img {
       width: 100%;
       height: auto;
-      border-radius: 50%;
+      border-radius: 0;
       margin-bottom: 15px;
       transition: transform 0.3s ease;
     }
@@ -294,7 +314,7 @@
       background-color: #333;
       margin: 5px 0;
       padding: 8px;
-      border-radius: 4px;
+      border-radius: 2px;
       color: #f5f5f5;
     }
 
@@ -335,6 +355,10 @@
       .hero h1 {
         font-size: 2.5em;
       }
+      .hero-text-bg {
+        padding: 20px;
+        margin: 0 10px;
+      }
     }
   </style>
 </head>
@@ -359,7 +383,6 @@
           <li><a href="#strategy">Strategy</a></li>
           <li><a href="#performance">Performance</a></li>
           <li><a href="#team">Meet the Team</a></li>
-          <!-- Added Jobs link referencing jobs.html -->
           <li><a href="jobs.html">Jobs</a></li>
           <li><a href="#contact">Contact</a></li>
         </ul>
@@ -367,18 +390,23 @@
     </div>
   </header>
 
-  <!-- HERO SECTION WITH PARTICLES BACKGROUND -->
+  <!-- HERO SECTION -->
   <section class="hero" id="hero">
-    <!-- Particles container -->
+    <!-- Particles.js container -->
     <div id="particles-js"></div>
+    <!-- Candlestick overlay canvas -->
+    <canvas id="candleOverlay"></canvas>
     <div class="hero-content">
-      <h1 id="typewriter">HedgeTrimmer Capital</h1>
-      <p>
-        Where AI-driven innovation meets deep market expertise. We blend advanced analytics, machine learning, and multi-asset strategies with real-time data to uncover unique investment opportunities in ever-evolving financial landscapes.
-      </p>
-      <button onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'})">
-        Get In Touch
-      </button>
+      <!-- Semi-transparent background wrapper -->
+      <div class="hero-text-bg">
+        <h1 id="typewriter">HedgeTrimmer Capital</h1>
+        <p>
+          Where AI-driven innovation meets deep market expertise. We blend advanced analytics, machine learning, and multi-asset strategies with real-time data to uncover unique investment opportunities.
+        </p>
+        <button onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'})">
+          Get In Touch
+        </button>
+      </div>
     </div>
   </section>
 
@@ -390,9 +418,7 @@
         <p>
           HedgeTrimmer Capital is an AI-powered hedge fund leveraging advanced analytics,
           machine learning, and quantitative modeling to optimize investment strategies.
-          Our team integrates real-time market insights, macroeconomic trends, and
-          cutting-edge technology to deliver superior risk-adjusted returns in dynamic
-          financial markets.
+          Our team integrates real-time market insights, macroeconomic trends, and cutting-edge technology to deliver superior risk-adjusted returns.
         </p>
       </div>
     </div>
@@ -404,9 +430,7 @@
       <h2>Our Strategy</h2>
       <div class="content">
         <p>
-          Our portfolio approach combines advanced quantitative models with
-          traditional analysis to create a dynamic, multi-asset strategy that
-          adapts to changing market conditions. Click on each area below to learn how we generate superior returns.
+          Our portfolio approach combines advanced quantitative models with traditional analysis to create a dynamic, multi-asset strategy that adapts to changing market conditions. Click on each area below to learn how we generate superior returns.
         </p>
         <div class="cards">
           <!-- Adaptive Algorithms Card -->
@@ -417,7 +441,7 @@
             </p>
             <div class="strategy-details">
               <p>
-                Our proprietary adaptive algorithm utilizes machine learning and statistical analysis to forecast market trends and dynamically adjust investment allocations in real time. By identifying market inefficiencies and capitalizing on emerging opportunities, our approach consistently delivers above-market, risk-adjusted returns. This state-of-the-art technology ensures your portfolio remains competitive and profitable in an ever-evolving financial landscape.
+                Our proprietary adaptive algorithm utilizes machine learning and statistical analysis to forecast market trends and dynamically adjust investment allocations in real time. By identifying market inefficiencies and capitalizing on emerging opportunities, our approach consistently delivers above-market, risk-adjusted returns.
               </p>
             </div>
           </div>
@@ -429,7 +453,7 @@
             </p>
             <div class="strategy-details">
               <p>
-                Our dynamic risk management system provides a robust framework for mitigating downside exposure while optimizing for potential gains. Through rigorous stress testing, real-time monitoring, and adaptive position sizing, we safeguard capital and ensure steady growth even in volatile markets. This proactive approach not only minimizes risk but also captures profitable opportunities, resulting in superior, risk-adjusted performance over the long term.
+                Our dynamic risk management system provides a robust framework for mitigating downside exposure while optimizing for potential gains. Through rigorous stress testing, real-time monitoring, and adaptive position sizing, we safeguard capital and ensure steady growth even in volatile markets.
               </p>
             </div>
           </div>
@@ -441,7 +465,7 @@
             </p>
             <div class="strategy-details">
               <p>
-                By integrating comprehensive macroeconomic indicators into our investment strategy, we are able to anticipate market shifts and identify profitable trends before they fully materialize. Our seasoned analysts work in tandem with sophisticated quantitative models to dynamically adjust asset allocations, ensuring that your portfolio is primed to benefit from emerging global trends. This strategic foresight not only enhances overall performance but also delivers consistent, long-term returns.
+                By integrating comprehensive macroeconomic indicators into our investment strategy, we are able to anticipate market shifts and identify profitable trends before they fully materialize. Our analysts work with sophisticated quantitative models to dynamically adjust asset allocations, ensuring your portfolio benefits from emerging global trends.
               </p>
             </div>
           </div>
@@ -456,9 +480,7 @@
       <h2>Performance</h2>
       <div class="content">
         <p>
-          Our strategies are backtested rigorously over multiple market cycles.
-          We believe in transparency and continuous improvement, ensuring that
-          our methods are both innovative and resilient.
+          Our strategies are backtested rigorously over multiple market cycles. We believe in transparency and continuous improvement, ensuring our methods are both innovative and resilient.
         </p>
       </div>
     </div>
@@ -466,67 +488,66 @@
 
   <!-- TEAM SECTION WITH ANIMATED GRADIENT BACKGROUND -->
   <section id="team" class="section-gradient">
-  <div class="container">
-    <h2>Meet the Team</h2>
-    <div class="content">
-      <div class="cards">
-        <!-- Jason Dank Card -->
-        <div class="card team-card" onclick="toggleCardExpansion(this)">
-          <img src="HedgeTrimmerDark.png" alt="Team member photo of Jason Dank" loading="lazy">
-          <h3><a href="https://www.linkedin.com/in/jason-dank/" target="_blank" rel="noopener">Jason Dank</a></h3>
-          <p>Chief Executive Officer &amp; Chief Technology Officer</p>
-          <div class="subordinates">
-            <ul>
-              <li><a href="https://www.linkedin.com/in/benjamin-conte-584a51251/">Ben Conte – Chief of Staff</a></li>
-              <li><a href="jobs.html#head-of-algorithmic-research">Apply Now – Head of Algorithmic Research</a></li>
-              <li><a href="jobs.html#head-of-investor-relations">Apply Now – Head of Investor Relations</a></li>
-            </ul>
+    <div class="container">
+      <h2>Meet the Team</h2>
+      <div class="content">
+        <div class="cards">
+          <!-- Jason Dank Card -->
+          <div class="card team-card" onclick="toggleCardExpansion(this)">
+            <img src="HedgeTrimmerDark.png" alt="Team member photo of Jason Dank" loading="lazy">
+            <h3><a href="https://www.linkedin.com/in/jason-dank/" target="_blank" rel="noopener">Jason Dank</a></h3>
+            <p>Chief Executive Officer &amp; Chief Technology Officer</p>
+            <div class="subordinates">
+              <ul>
+                <li><a href="https://www.linkedin.com/in/benjamin-conte-584a51251/">Ben Conte – Chief of Staff</a></li>
+                <li><a href="jobs.html#head-of-algorithmic-research">Apply Now – Head of Algorithmic Research</a></li>
+                <li><a href="jobs.html#head-of-investor-relations">Apply Now – Head of Investor Relations</a></li>
+              </ul>
+            </div>
           </div>
-        </div>
-        <!-- George Tatakis Card -->
-        <div class="card team-card" onclick="toggleCardExpansion(this)">
-          <img src="HedgeTrimmerDark.png" alt="Team member photo of George Tatakis" loading="lazy">
-          <h3><a href="https://www.linkedin.com/in/tatakisg/" target="_blank" rel="noopener">George Tatakis</a></h3>
-          <p>Chief Investment Officer</p>
-          <div class="subordinates">
-            <ul>
-              <li><a href="jobs.html#quantitative-research-analyst">Apply Now – Quantitative Research Analyst</a></li>
-              <li><a href="jobs.html#macro-strategy-analyst">Apply Now – Macro Strategy Analyst</a></li>
-              <li><a href="jobs.html#risk-modeling-specialist">Apply Now – Risk Modeling Specialist</a></li>
-            </ul>
+          <!-- George Tatakis Card -->
+          <div class="card team-card" onclick="toggleCardExpansion(this)">
+            <img src="HedgeTrimmerDark.png" alt="Team member photo of George Tatakis" loading="lazy">
+            <h3><a href="https://www.linkedin.com/in/tatakisg/" target="_blank" rel="noopener">George Tatakis</a></h3>
+            <p>Chief Investment Officer</p>
+            <div class="subordinates">
+              <ul>
+                <li><a href="jobs.html#quantitative-research-analyst">Apply Now – Quantitative Research Analyst</a></li>
+                <li><a href="jobs.html#macro-strategy-analyst">Apply Now – Macro Strategy Analyst</a></li>
+                <li><a href="jobs.html#risk-modeling-specialist">Apply Now – Risk Modeling Specialist</a></li>
+              </ul>
+            </div>
           </div>
-        </div>
-        <!-- Conor Mathews Card -->
-        <div class="card team-card" onclick="toggleCardExpansion(this)">
-          <img src="HedgeTrimmerDark.png" alt="Team member photo of Conor Mathews" loading="lazy">
-          <h3><a href="https://www.linkedin.com/in/conor-matthews19/" target="_blank" rel="noopener">Conor Mathews</a></h3>
-          <p>Chief Financial Officer</p>
-          <div class="subordinates">
-            <ul>
-              <li><a href="jobs.html#financial-data-analyst">Apply Now – Financial Data Analyst</a></li>
-              <li><a href="jobs.html#strategic-finance-advisor">Apply Now – Strategic Finance Advisor</a></li>
-              <li><a href="jobs.html#compliance-reporting-specialist">Apply Now – Compliance &amp; Reporting Specialist</a></li>
-            </ul>
+          <!-- Conor Mathews Card -->
+          <div class="card team-card" onclick="toggleCardExpansion(this)">
+            <img src="HedgeTrimmerDark.png" alt="Team member photo of Conor Mathews" loading="lazy">
+            <h3><a href="https://www.linkedin.com/in/conor-matthews19/" target="_blank" rel="noopener">Conor Mathews</a></h3>
+            <p>Chief Financial Officer</p>
+            <div class="subordinates">
+              <ul>
+                <li><a href="jobs.html#financial-data-analyst">Apply Now – Financial Data Analyst</a></li>
+                <li><a href="jobs.html#strategic-finance-advisor">Apply Now – Strategic Finance Advisor</a></li>
+                <li><a href="jobs.html#compliance-reporting-specialist">Apply Now – Compliance &amp; Reporting Specialist</a></li>
+              </ul>
+            </div>
           </div>
-        </div>
-        <!-- Ryan Matheson Card -->
-        <div class="card team-card" onclick="toggleCardExpansion(this)">
-          <img src="HedgeTrimmerDark.png" alt="Team member photo of Ryan Matheson" loading="lazy">
-          <h3><a href="https://www.linkedin.com/in/mathesonryan/" target="_blank" rel="noopener">Ryan Matheson</a></h3>
-          <p>Chief Risk Officer</p>
-          <div class="subordinates">
-            <ul>
-              <li><a href="jobs.html#advanced-risk-analytics-specialist">Apply Now – Advanced Risk Analytics Specialist</a></li>
-              <li><a href="jobs.html#regulatory-compliance-advisor">Apply Now – Regulatory Compliance Advisor</a></li>
-              <li><a href="jobs.html#quantitative-risk-manager">Apply Now – Quantitative Risk Manager</a></li>
-            </ul>
+          <!-- Ryan Matheson Card -->
+          <div class="card team-card" onclick="toggleCardExpansion(this)">
+            <img src="HedgeTrimmerDark.png" alt="Team member photo of Ryan Matheson" loading="lazy">
+            <h3><a href="https://www.linkedin.com/in/mathesonryan/" target="_blank" rel="noopener">Ryan Matheson</a></h3>
+            <p>Chief Risk Officer</p>
+            <div class="subordinates">
+              <ul>
+                <li><a href="jobs.html#advanced-risk-analytics-specialist">Apply Now – Advanced Risk Analytics Specialist</a></li>
+                <li><a href="jobs.html#regulatory-compliance-advisor">Apply Now – Regulatory Compliance Advisor</a></li>
+                <li><a href="jobs.html#quantitative-risk-manager">Apply Now – Quantitative Risk Manager</a></li>
+              </ul>
+            </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
-</section>
-
+  </section>
 
   <!-- CONTACT SECTION WITH ANIMATED GRADIENT BACKGROUND -->
   <section id="contact" class="section-gradient">
@@ -534,8 +555,7 @@
       <h2>Contact Us</h2>
       <div class="content">
         <p>
-          Ready to learn more? Get in touch with us to explore investment
-          opportunities or discuss our cutting-edge strategies.
+          Ready to learn more? Get in touch with us to explore investment opportunities or discuss our cutting-edge strategies.
         </p>
         <p>Email: <a href="mailto:hedgetrimmercapital@gmail.com">hedgetrimmercapital@gmail.com</a></p>
         <p>LinkedIn: <a href="https://www.linkedin.com/company/hedgetrimmer/" target="_blank" rel="noopener">@HedgeTrimmer</a></p>
@@ -550,10 +570,7 @@
       <p>&copy; 2025 HedgeTrimmer Capital. All rights reserved.</p>
       <div class="disclaimer">
         <p>
-          Disclaimer: This website is for informational purposes only and does not
-          constitute an offer to sell, or a solicitation of an offer to buy, any
-          security or investment product. Past performance is not necessarily
-          indicative of future results. Investing involves risk of loss.
+          Disclaimer: This website is for informational purposes only and does not constitute an offer to sell, or a solicitation of an offer to buy, any security or investment product. Past performance is not necessarily indicative of future results. Investing involves risk of loss.
         </p>
       </div>
     </div>
@@ -628,6 +645,156 @@
       "retina_detect": true
     });
 
+    /* CANDLESTICK CANVAS ANIMATION */
+    function initCandleOverlay() {
+      const canvas = document.getElementById('candleOverlay');
+      const ctx = canvas.getContext('2d');
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+
+      // Candle config
+      const candleWidth = 8;     // width of each candlestick body
+      const candleSpacing = 12;  // horizontal distance between candles
+      const candleCount = Math.floor(canvas.width / candleSpacing) + 5;
+      let candles = [];
+
+      // Generate random candles initially
+      function createInitialCandles() {
+        candles = [];
+        // Start from right to left so we can shift them left
+        let xPos = 0;
+        // Random baseline for the first candle
+        let baseline = canvas.height * 0.6;
+        for (let i = 0; i < candleCount; i++) {
+          let c = randomCandle(baseline, xPos);
+          baseline = c.close; // next candle's baseline is the previous candle's close
+          candles.push(c);
+          xPos += candleSpacing;
+        }
+      }
+
+      function randomCandle(previousClose, x) {
+        // Create a random open/close near the previousClose
+        // plus random high and low
+        let open = previousClose + (Math.random() * 40 - 20);
+        open = clamp(open, 20, canvas.height - 20);
+
+        let close = open + (Math.random() * 40 - 20);
+        close = clamp(close, 20, canvas.height - 20);
+
+        let high = Math.max(open, close) + (Math.random() * 10);
+        let low = Math.min(open, close) - (Math.random() * 10);
+
+        // Ensure bounds
+        high = clamp(high, 20, canvas.height - 20);
+        low = clamp(low, 20, canvas.height - 20);
+
+        // If close ended up the same as open, offset slightly so color is visible
+        if (Math.abs(close - open) < 1) {
+          close = open + (Math.random() < 0.5 ? 2 : -2);
+          close = clamp(close, 20, canvas.height - 20);
+        }
+
+        return {
+          x: x,
+          open: open,
+          close: close,
+          high: Math.max(high, open, close),
+          low: Math.min(low, open, close)
+        };
+      }
+
+      // Helper: clamp value within min and max
+      function clamp(value, min, max) {
+        return Math.max(min, Math.min(value, max));
+      }
+
+      // Shift candles left, add new candle on right
+      function shiftCandles() {
+        for (let i = 0; i < candles.length; i++) {
+          candles[i].x -= 0.5; // speed to the left
+        }
+        // If the leftmost candle is off screen, remove it and add a new one on the right
+        if (candles[0].x + candleWidth < 0) {
+          candles.shift();
+          // The last candle is at
+          let lastCandle = candles[candles.length - 1];
+          let newX = lastCandle.x + candleSpacing;
+          let c = randomCandle(lastCandle.close, newX);
+          candles.push(c);
+        }
+      }
+
+      // Draw the entire candlestick chart
+      function drawCandles() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+        // Optional: draw faint grid lines
+        drawGrid();
+
+        candles.forEach(c => {
+          drawCandle(c);
+        });
+      }
+
+      // Draw a single candlestick (body + wick)
+      function drawCandle(c) {
+        // Candle color: green if close > open, red otherwise
+        if (c.close > c.open) {
+          ctx.fillStyle = "#00ff00"; // green
+        } else {
+          ctx.fillStyle = "#ff0000"; // red
+        }
+
+        // Wick color can be black or the same as body
+        ctx.strokeStyle = "#f5f5f5";
+        ctx.lineWidth = 1;
+
+        // 1) Draw the wick from high to low
+        ctx.beginPath();
+        ctx.moveTo(c.x + candleWidth / 2, c.high);
+        ctx.lineTo(c.x + candleWidth / 2, c.low);
+        ctx.stroke();
+
+        // 2) Draw the candle body from open to close
+        let candleTop = Math.min(c.open, c.close);
+        let candleBottom = Math.max(c.open, c.close);
+        let bodyHeight = candleBottom - candleTop;
+        ctx.fillRect(c.x, candleTop, candleWidth, bodyHeight);
+      }
+
+      // Draw faint grid behind candles
+      function drawGrid() {
+        ctx.save();
+        ctx.strokeStyle = 'rgba(255, 255, 255, 0.1)';
+        ctx.lineWidth = 1;
+        let spacing = 50;
+        for (let x = 0; x <= canvas.width; x += spacing) {
+          ctx.beginPath();
+          ctx.moveTo(x, 0);
+          ctx.lineTo(x, canvas.height);
+          ctx.stroke();
+        }
+        for (let y = 0; y <= canvas.height; y += spacing) {
+          ctx.beginPath();
+          ctx.moveTo(0, y);
+          ctx.lineTo(canvas.width, y);
+          ctx.stroke();
+        }
+        ctx.restore();
+      }
+
+      createInitialCandles();
+
+      // Main animation loop
+      function animate() {
+        shiftCandles();
+        drawCandles();
+        requestAnimationFrame(animate);
+      }
+      animate();
+    }
+
     /* TYPEWRITER EFFECT FOR HERO HEADING */
     document.addEventListener("DOMContentLoaded", function() {
       const heroHeading = document.getElementById('typewriter');
@@ -679,10 +846,20 @@
       window.addEventListener("scroll", revealOnScroll);
     });
 
-    /* TOGGLE EXPANSION FOR BOTH STRATEGY AND TEAM CARDS */
+    /* TOGGLE EXPANSION FOR STRATEGY AND TEAM CARDS */
     function toggleCardExpansion(card) {
       card.classList.toggle('expanded');
     }
+
+    // Initialize everything on load
+    window.addEventListener('load', () => {
+      initCandleOverlay();
+    });
+    window.addEventListener('resize', () => {
+      const candleCanvas = document.getElementById('candleOverlay');
+      candleCanvas.width = window.innerWidth;
+      candleCanvas.height = window.innerHeight;
+    });
   </script>
 </body>
 </html>
